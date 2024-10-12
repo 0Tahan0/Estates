@@ -18,7 +18,7 @@ export default {
     },
     tooltip: {
       type: String,
-      default: "",
+      default: null,
     },
   },
   methods: {
