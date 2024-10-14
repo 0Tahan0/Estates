@@ -29,13 +29,10 @@ import Title from "./components/pagesComponents/Title.vue";
 app.component("Title", Title);
 import EstateCard from "./components/estateCard.vue";
 app.component("EstateCard", EstateCard);
-
 import Section from "./components/pagesComponents/Section.vue";
 app.component("Section", Section);
-
 import Footer from "./layout/Footer/Footer.vue";
 app.component("Footer", Footer);
-
 import Field from "./components/UI/Field.vue";
 app.component("Field", Field);
 import Select from "./components/UI/Select.vue";
@@ -44,7 +41,6 @@ import Button from "./components/UI/Button.vue";
 app.component("Button", Button);
 import IconBtn from "./components/UI/IconBtn.vue";
 app.component("IconBtn", IconBtn);
-
 import PageSplitter from "./components/pagesComponents/PageSplitter.vue";
 app.component("PageSplitter", PageSplitter);
 import Article from "./components/pagesComponents/Article.vue";
@@ -57,9 +53,14 @@ import Wrapper from "./components/Wrapper.vue";
 app.component("Wrapper", Wrapper);
 import WrapperEl from "./components/WrapperEl.vue";
 app.component("WrapperEl", WrapperEl);
+import BlogCard from "./components/BlogCard.vue";
+app.component("BlogCard", BlogCard);
+import Loading from "./components/UI/Loading.vue";
+app.component("Loading", Loading);
 import i18n from "./i18n/i18n.js";
 
 app.component("Icon", FontAwesomeIcon);
+
 app.use(router);
 app.use(store);
 app.use(i18n);

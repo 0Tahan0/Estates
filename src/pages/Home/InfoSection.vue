@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-lightBlue">
+  <div class="bg-mainColor">
     <Container class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
       <div
         v-for="(i, ind) in info"

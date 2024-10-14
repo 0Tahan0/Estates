@@ -7,7 +7,7 @@ export default {
   ui: {
     Home: "home",
     AboutUs: "about us",
-    Estate: "estate",
+    Estates: "estates",
     ForSale: "for sale",
     UnderConstruction: "under construction",
     ForRent: "for rent",
@@ -36,6 +36,9 @@ export default {
     ar: "language",
     lightMode: "light mode",
     darkMode: "dark mode",
+    Blogs: "Blogs",
+    PointingMode: "pointing mode",
+    DeleteMode: "delete mode",
   },
   uiText: {
     AboutUsText:

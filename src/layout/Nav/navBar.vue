@@ -129,10 +129,14 @@ export default {
           path: "/about",
           page: this.$t("ui.AboutUs"),
         },
-        // {
-        //   path: "/properties",
-        //   page: this.$t("ui.Estate"),
-        // },
+        {
+          path: "/blogs",
+          page: this.$t("ui.Blogs"),
+        },
+        {
+          path: "/Estates",
+          page: this.$t("ui.Estates"),
+        },
       ];
     },
 

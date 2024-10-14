@@ -50,7 +50,7 @@
         :key="index"
         @click="goToSlide(index)"
         class="cursor-pointer w-5 h-2"
-        :class="currentIndex === index ? 'bg-lightBlue' : 'bg-gray-400'"
+        :class="currentIndex === index ? 'bg-mainColor' : 'bg-gray-400'"
       ></span>
     </div>
   </div>

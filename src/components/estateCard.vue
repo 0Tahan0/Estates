@@ -1,8 +1,8 @@
 <template>
   <WrapperEl
-    class="shadow-md shadow-black/35 flex flex-col min-h-80 min-w-60 select-none"
+    class="shadow-md shadow-black/35 flex  min-w-80 select-none"
   >
-    <div class="flex-grow relative">
+    <div class="w-1/2 relative">
       <span
         class="absolute top-2 left-2 p-1 text-xs capitalize font-bold text-white"
         :style="`background: ${getStatus.color}`"
@@ -20,7 +20,7 @@
       <div class="border-b mt-3 pb-3">
         <p>{{ project.locationNumber }}</p>
         <div
-          class="flex items-center gap-2 cursor-pointer hover:text-lightBlue w-fit text-gray-500 dark:text-gray-300"
+          class="flex items-center gap-2 cursor-pointer hover:text-mainColor w-fit text-gray-500 dark:text-gray-300"
         >
           <p>{{ project.location }}</p>
           <Icon :icon="['fas', 'location-dot']" />

@@ -13,7 +13,7 @@
         <p
           class="mx-auto capitalize"
           :class="
-            isOpen(index) ? 'text-lightBlue border-b-2 border-lightBlue' : ''
+            isOpen(index) ? 'text-mainColor border-b-2 border-mainColor' : ''
           "
         >
           {{ item.title }}

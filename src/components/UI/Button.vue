@@ -3,7 +3,7 @@
     @click="handelClick($event)"
     :disabled="disabled"
     :class="customizeButtonStatus"
-    class="text-white bg-dark shadow-md shadow-black/20 px-1.5 py-2 capitalize font-medium text-xs md:text-sm select-none transition-all duration-300"
+    class=" shadow-md shadow-black/20 px-2 py-2.5 capitalize font-medium text-xs select-none transition-all duration-300"
   >
     <slot></slot>
   </button>
@@ -16,14 +16,20 @@ export default {
       type: Boolean,
       default: false,
     },
+    active: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     customizeButtonStatus() {
-      if (this.disabled) {
+      if (this.disabled)
         return "bg-stone-500 cursor-not-allowed text-opacity-70";
-      }
+      else if (this.active)
+        return " scale-95 ";
+
       // normal mode
-      return "hover:bg-stone-500 active:scale-95 active:bg-lightBlue ";
+      return " dark:text-white text-dark bg-lightBt dark:bg-dark  md:dark:hover:bg-stone-500 active:bg-inherit active:text-inherit active:after:hidden   ";
     },
   },
   methods: {

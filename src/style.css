@@ -24,12 +24,13 @@ html[dir="rtl"] * {
 :root {
   /* --dark: #454545; */
   --dark-gray: #797979;
-  --light-blue: #59c4cd;
+  --main-color: #59c4cd;
   --dark-blue: #284e7c;
   --dark: #252525;
   --darkEl: #353535;
   --light: #fff;
   --lightEl: #fafafa;
+  --lightBt: #eee;
 }
 ::-webkit-scrollbar {
   width: 5px;
@@ -43,8 +44,9 @@ html[dir="rtl"] * {
   position: relative;
 }
 [tooltip]:hover::after {
-  opacity: 1;
+opacity: 1;
 }
+@media (min-width:768px) {
 html[data-mode="dark"] [tooltip]::after {
   background-color: var(--darkEl);
   color: #fff;
@@ -65,9 +67,11 @@ html[data-mode="dark"] [tooltip]::after {
   position: absolute;
   content: attr(tooltip);
   z-index: 1;
-  transform: translate(50%, 100%);
-  top: 0%; /* Position above the text */
-  left: -100%;
+  transform: translate(0%, 100%);
+  bottom: 0%; /* Position above the text */
+  margin-left: -100%;
 
   transition: opacity 0.3s 0.3s;
+}
+
 }

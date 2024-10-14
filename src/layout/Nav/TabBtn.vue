@@ -2,7 +2,7 @@ import { RouterLink } from 'vue-router';
 <template>
   <router-link
     @click="handelClick($event)"
-    active-class="text-lightBlue  before:bg-lightBlue text-center "
+    active-class="text-mainColor  before:bg-mainColor text-center "
     class="p-2.5 capitalize md:min-w-24  before:transition-all transition-all relative before:absolute before:left-0 before:bottom-0 before:w-full before:h-1"
     :to="path"
     ><slot> {{ tabName }}</slot>

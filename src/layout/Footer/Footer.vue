@@ -1,6 +1,6 @@
 <template>
   <Wrapper class="space-y-7">
-    <section class="bg-lightBlue">
+    <section class="bg-mainColor">
       <Container
         class="grid md:grid-cols-2 items-center gap-5 font-bold text-white py-10"
       >
@@ -30,7 +30,7 @@
             {{ $t("uiText.EmailServiceText") }}
           </Article>
           <Field
-            iconClass="bg-lightBlue text-white"
+            iconClass="bg-mainColor text-white"
             type="text"
             icon="fa-envelope fa-regular"
             :label="$t('fields.Email')"
@@ -71,20 +71,20 @@
             </div>
             <div class="flex gap-5 justify-center md:justify-start">
               <IconBtn
-                icon="fa-facebook fa-brands"
-                class="text-blue-500 ring-blue-400 bg-white"
+                icon="fa-facebook-f fa-brands"
+                class="bg-blue-500 ring-blue-400 text-white"
               />
               <IconBtn
                 icon=" fa-tiktok fa-brands"
-                class="p-0.5 bg-black text-white ring-gray-600"
+                class=" bg-black text-white ring-gray-600"
               />
               <IconBtn
                 icon=" fa-instagram fa-brands"
-                class="bg-gradient-to-tr from-orange-500 via-rose-500 text-white rounded-md ring-rose-400 p-0.5"
+                class="bg-gradient-to-tr from-orange-500 via-rose-500 text-white rounded-md ring-rose-400 "
               />
               <IconBtn
                 icon=" fa-twitter fa-brands"
-                class="bg-sky-500 p-0.5 text-white ring-sky-400"
+                class="bg-sky-500  text-white ring-sky-400"
               />
             </div>
           </Article>
