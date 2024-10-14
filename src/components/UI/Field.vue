@@ -2,11 +2,11 @@
   <div
     class="outline-none border shadow-sm justify-between flex p-0.5 text-slate-600 dark:text-gray-300 relative"
     :class="customizeFocusedStyle"
-    @click="handelDivClick()"
+    @click="handleDivClick()"
   >
     <p
       v-if="label"
-      class="absolute select-none capitalize  top-0 transition-all h-1/2 before:absolute before:top-1.5 before:left-0 before:w-full before:-z-10 before:h-1.5 before:bg-light dark:before:bg-dark"
+      class="absolute select-none capitalize top-0 transition-all h-1/2 before:absolute before:top-1.5 before:left-0 before:w-full before:-z-10 before:h-1.5 before:bg-light dark:before:bg-dark"
       :class="customizeFocusedLabel"
     >
       {{ label }}
@@ -14,14 +14,18 @@
     <input
       @focus="isFocused = true"
       @blur="isFocused = false"
-      @input="handelInput($event)"
+      @input="handleInput($event)"
       ref="inp"
       :type="fieldType"
       :value="inputValue"
       :placeholder="placeholder"
       class="outline-none p-2 text-inherit dark:text-white flex-grow bg-transparent"
     />
-    <button v-if="icon" :class="customizeIconClass">
+    <button
+      @click="$emit('click', $event)"
+      v-if="icon"
+      :class="customizeIconClass"
+    >
       <Icon :icon="icon" />
     </button>
     <transition name="errorMsg">
@@ -34,12 +38,13 @@
     </transition>
   </div>
 </template>
+
 <script>
 export default {
-  emits: ["update:modelValue", "input"],
+  emits: ["update:modelValue", "input", "click"],
   props: {
     value: {
-      type: String || Number,
+      type: String,
       default: null,
     },
     type: {
@@ -48,7 +53,7 @@ export default {
     },
     icon: {
       type: String,
-      default: false,
+      default: null, // Changed from false to null
     },
     iconClass: {
       type: String,
@@ -60,14 +65,16 @@ export default {
     },
     label: {
       type: String,
-      default: false,
+      default: null, // Changed from false to null
     },
     validation: {
       type: String,
       default: "",
     },
-    modelValue: String,
-    default: null,
+    modelValue: {
+      type: String,
+      default: null, // Moved to be part of the object
+    },
   },
   data() {
     return {
@@ -77,43 +84,34 @@ export default {
   },
   computed: {
     customizeIconClass() {
-      return this.iconClass + " " + "w-10 hover:border text-inherit";
+      return `${this.iconClass} w-10 hover:border text-inherit`;
     },
     customizeFocusedStyle() {
-      if (this.isFocused) return `ring-1 ${this.validation && "ring-red-500"}`;
-      return `${this.validation && "ring-red-500"} ring-1`;
+      return `ring-1 ${this.isFocused ? '' : ''} ${this.validation ? 'ring-red-500' : ''}`;
     },
     customizeFocusedLabel() {
-      if (this.isFocused || this.modelValue || this.value)
-        return " -translate-y-1/2 text-xs px-1 ";
-      return " translate-y-1/2";
+      return this.isFocused || this.modelValue || this.value ? ' -translate-y-1/2 text-xs px-1 ' : ' translate-y-1/2';
     },
     fieldType() {
-      if (
-        this.type != "text" &&
-        this.type != "email" &&
-        this.type != "password" &&
-        this.type != "number"
-      )
-        return "text";
-      return this.type;
+      return ['text', 'email', 'password', 'number'].includes(this.type) ? this.type : 'text';
     },
     inputValue() {
-      if (this.modelValue) return this.modelValue;
-      return this.value;
+      return this.modelValue !== undefined ? this.modelValue : this.value || '';
     },
   },
   methods: {
-    handelDivClick() {
+    handleDivClick() { // Fixed spelling
       this.$refs.inp.focus();
     },
-    handelInput(e) {
-      this.$emit("update:modelValue", e.target.value);
-      //   this.$emit("input", e.target.value);
-    },
+  handleInput(e) {
+    const newValue = e.target.value;
+    this.$emit('update:modelValue', newValue);
+    this.$emit('input', newValue);
+  },
   },
 };
 </script>
+
 <style scoped>
 .errorMsg-enter-active,
 .errorMsg-leave-active {
