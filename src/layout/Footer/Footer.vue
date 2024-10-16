@@ -72,19 +72,19 @@
             <div class="flex gap-5 justify-center md:justify-start">
               <IconBtn
                 icon="fa-facebook-f fa-brands"
-                class="bg-blue-500 ring-blue-400 text-white"
+                class="bg-blue-500 dark:ring-blue-500 text-white rounded-full"
               />
               <IconBtn
                 icon=" fa-tiktok fa-brands"
-                class=" bg-black text-white ring-gray-600"
+                class=" bg-black text-white ring-gray-600 rounded-full"
               />
               <IconBtn
                 icon=" fa-instagram fa-brands"
-                class="bg-gradient-to-tr from-orange-500 via-rose-500 text-white rounded-md ring-rose-400 "
+                class="bg-gradient-to-tr from-orange-500 via-rose-500 text-white rounded-md ring-rose-400"
               />
               <IconBtn
                 icon=" fa-twitter fa-brands"
-                class="bg-sky-500  text-white ring-sky-400"
+                class="bg-sky-500  text-white ring-sky-400 rounded-full"
               />
             </div>
           </Article>

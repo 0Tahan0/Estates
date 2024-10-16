@@ -7,207 +7,451 @@
     >
       <Swiper :slides="+(projects.length)">
         <template v-slot="{ slotContent }">
-          <EstateCard :project="projects[slotContent]" />
+          <EstateCard :item="projects[slotContent]" />
         </template>
       </Swiper>
     </Section>
   </Container>
 </template>
 <script>
-import im1 from "../../assets/images/9-480x310.jpg";
-import im2 from "../../assets/images/IStown3-5-480x310.jpg";
-import im3 from "../../assets/images/Residence-Inn_09-revize_5-480x310.jpg";
-import im4 from "../../assets/images/Projescope-Nivak-Florya-Properties-in-Istanbul-2-480x310.jpg";
-import im5 from "../../assets/images/odul-istanbul-1.jpg";
-import im6 from "../../assets/images/May_22-9-480x310.jpg";
-import im7 from "../../assets/images/DIS-480x310.png";
+import im1 from "../../assets/images/banner1.jpg";
+import im2 from "../../assets/images/banner2.jpg";
+import im3 from "../../assets/images/banner3.jpg";
+import im4 from "../../assets/images/banner5.jpg";
+import im5 from "../../assets/images/banner7.jpg";
+import im6 from "../../assets/images/banner8.jpg";
+import im7 from "../../assets/images/slide.jpg";
+import im8 from "../../assets/images/slide2.jpg";
+import im9 from "../../assets/images/slide3.jpg";
+import im10 from "../../assets/images/Residence-Inn_09-revize_5-480x310.jpg";
+import im11 from "../../assets/images/IStown3-5-480x310.jpg";
+import im12 from "../../assets/images/odul-istanbul-1.jpg";
+import im13 from "../../assets/images/May_22-9-480x310.jpg";
 export default {
   data() {
     return {
-      projects: [
-        {
-          id: 1,
-          image: im1,
-          price: 130000,
-          location: "Istanbul/ Beylikduzu",
-          locationNumber: "MST- IST -0431",
-          properties: [
-            {
-              title: "غرف نوم  ",
-              value: "2",
-            },
-            {
-              title: "حمامات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-          ],
-          projectStatus: 0,
-        },
-        {
-          id: 2,
-          image: im2,
-          price: 130000,
-
-          location: "Istanbul/ Beylikduzu",
-          locationNumber: "MST- IST -0431",
-          properties: [
-            {
-              title: "غرف نوم  ",
-              value: "2",
-            },
-            {
-              title: "حمامات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-          ],
-          projectStatus: 0,
-        },
-        {
-          id: 3,
-          image: im3,
-          price: 130000,
-          location: "Istanbul/ Beylikduzu",
-          locationNumber: "MST- IST -0431",
-          properties: [
-            {
-              title: "غرف نوم  ",
-              value: "2",
-            },
-            {
-              title: "حمامات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-          ],
-          projectStatus: 0,
-        },
-        {
-          id: 4,
-          image: im4,
-          price: 130000,
-          location: "Istanbul/ Beylikduzu",
-          locationNumber: "MST- IST -0431",
-          properties: [
-            {
-              title: "غرف نوم  ",
-              value: "2",
-            },
-            {
-              title: "حمامات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-          ],
-          projectStatus: 0,
-        },
-        {
-          id: 5,
-          image: im5,
-          price: 130000,
-
-          location: "Istanbul/ Beylikduzu",
-          locationNumber: "MST- IST -0431",
-          properties: [
-            {
-              title: "غرف نوم  ",
-              value: "2",
-            },
-            {
-              title: "حمامات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-          ],
-          projectStatus: 0,
-        },
-        {
-          id: 6,
-          image: im6,
-          price: 130000,
-
-          location: "Istanbul/ Beylikduzu",
-          locationNumber: "MST- IST -0431",
-          properties: [
-            {
-              title: "غرف نوم  ",
-              value: "2",
-            },
-            {
-              title: "حمامات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-          ],
-          projectStatus: 0,
-        },
-        {
-          id: 7,
-          image: im7,
-          price: 130000,
-
-          location: "Istanbul/ Beylikduzu",
-          locationNumber: "MST- IST -0431",
-          properties: [
-            {
-              title: "غرف نوم  ",
-              value: "2",
-            },
-            {
-              title: "حمامات",
-              value: "2",
-            },
-            {
-              title: "كراجات",
-              value: "2",
-            },
-          ],
-          projectStatus: 0,
-        },
-      ],
+      projects:  [
+                {
+                    id: 1,
+                    title: "شقة سكنية",
+                    price: 20000,
+                    date: new Date(),
+                    situation: 0,
+                    location: {
+                        x: 28.8783589,
+                        y: 41.1082376,
+                        title: "location title",
+                    },
+                    code: "n8",
+                    isSpecial: false,
+                    currencyType: 0,
+                    type: "شقة سكنية",
+                    attachments: [im1, im2, im3],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 2,
+                    title: "شقة سكنية",
+                    price: 1342,
+                    date: new Date(),
+                    situation: 2,
+                    location: {
+                        x: 28.5683589,
+                        y: 41.1079376,
+                        title: "location title",
+                    },
+                    code: "n89",
+                    isSpecial: false,
+                    currencyType: 1,
+                    type: "شقة سكنية",
+                    attachments: [im4, im5, im6, im7, im8],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 3,
+                    title: "شقة سكنية",
+                    price: 51452,
+                    date: new Date(),
+                    situation: 1,
+                    location: {
+                        x: 28.5683589,
+                        y: 41.1079376,
+                        title: "location title",
+                    },
+                    code: "n89",
+                    isSpecial: false,
+                    currencyType: 0,
+                    type: "شقة سكنية",
+                    attachments: [im9, im10, im12, im11, im13],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 1,
+                    title: "شقة سكنية",
+                    price: 20000,
+                    date: new Date(),
+                    situation: 0,
+                    location: {
+                        x: 28.8783589,
+                        y: 41.1082376,
+                        title: "location title",
+                    },
+                    code: "n8",
+                    isSpecial: false,
+                    currencyType: 0,
+                    type: "شقة سكنية",
+                    attachments: [im1, im2, im3],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 2,
+                    title: "شقة سكنية",
+                    price: 1342,
+                    date: new Date(),
+                    situation: 2,
+                    location: {
+                        x: 28.5683589,
+                        y: 41.1079376,
+                        title: "location title",
+                    },
+                    code: "n89",
+                    isSpecial: false,
+                    currencyType: 1,
+                    type: "شقة سكنية",
+                    attachments: [im4, im5, im6, im7, im8],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 3,
+                    title: "شقة سكنية",
+                    price: 51452,
+                    date: new Date(),
+                    situation: 1,
+                    location: {
+                        x: 28.5683589,
+                        y: 41.1079376,
+                        title: "location title",
+                    },
+                    code: "n89",
+                    isSpecial: false,
+                    currencyType: 0,
+                    type: "شقة سكنية",
+                    attachments: [im9, im10, im12, im11, im13],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 1,
+                    title: "شقة سكنية",
+                    price: 20000,
+                    date: new Date(),
+                    situation: 0,
+                    location: {
+                        x: 28.8783589,
+                        y: 41.1082376,
+                        title: "location title",
+                    },
+                    code: "n8",
+                    isSpecial: false,
+                    currencyType: 0,
+                    type: "شقة سكنية",
+                    attachments: [im1, im2, im3],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 2,
+                    title: "شقة سكنية",
+                    price: 1342,
+                    date: new Date(),
+                    situation: 2,
+                    location: {
+                        x: 28.5683589,
+                        y: 41.1079376,
+                        title: "location title",
+                    },
+                    code: "n89",
+                    isSpecial: false,
+                    currencyType: 1,
+                    type: "شقة سكنية",
+                    attachments: [im4, im5, im6, im7, im8],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 3,
+                    title: "شقة سكنية",
+                    price: 51452,
+                    date: new Date(),
+                    situation: 1,
+                    location: {
+                        x: 28.5683589,
+                        y: 41.1079376,
+                        title: "location title",
+                    },
+                    code: "n89",
+                    isSpecial: false,
+                    currencyType: 0,
+                    type: "شقة سكنية",
+                    attachments: [im9, im10, im12, im11, im13],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 1,
+                    title: "شقة سكنية",
+                    price: 20000,
+                    date: new Date(),
+                    situation: 0,
+                    location: {
+                        x: 28.8783589,
+                        y: 41.1082376,
+                        title: "location title",
+                    },
+                    code: "n8",
+                    isSpecial: false,
+                    currencyType: 0,
+                    type: "شقة سكنية",
+                    attachments: [im1, im2, im3],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 2,
+                    title: "شقة سكنية",
+                    price: 1342,
+                    date: new Date(),
+                    situation: 2,
+                    location: {
+                        x: 28.5683589,
+                        y: 41.1079376,
+                        title: "location title",
+                    },
+                    code: "n89",
+                    isSpecial: false,
+                    currencyType: 1,
+                    type: "شقة سكنية",
+                    attachments: [im4, im5, im6, im7, im8],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+                {
+                    id: 3,
+                    title: "شقة سكنية",
+                    price: 51452,
+                    date: new Date(),
+                    situation: 1,
+                    location: {
+                        x: 28.5683589,
+                        y: 41.1079376,
+                        title: "location title",
+                    },
+                    code: "n89",
+                    isSpecial: false,
+                    currencyType: 0,
+                    type: "شقة سكنية",
+                    attachments: [im9, im10, im12, im11, im13],
+                    properties: [
+                        {
+                            title_ar: "الحمامات",
+                            title_en: "tolits",
+                            value_ar: "2",
+                            value_en: "2",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                        {
+                            title_ar: "الغرف",
+                            title_en: "rooms",
+                            value_ar: "3",
+                            value_en: "3",
+                            description_ar: null,
+                            description_en: null,
+                        },
+                    ],
+                },
+            ],
     };
   },
 };

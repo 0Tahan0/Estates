@@ -2,76 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: "alex";
-  src: url("./assets/fonts/Alexandria/Alexandria-VariableFont_wght.ttf");
-}
-html[data-mode="dark"] {
-  color-scheme: dark;
-}
-
-html ,body{
-  font-family: "alex";
-  scroll-behavior: smooth;
-  height: 100dvh;
-}
-html[dir="rtl"] * {
-  direction: rtl;
-}
-::selection {
-  background-color: var(--dark);
-  color: white;
+    font-family: "alex";
+    src: url("./assets/fonts/Alexandria/Alexandria-VariableFont_wght.ttf");
 }
 :root {
-  /* --dark: #454545; */
-  --dark-gray: #797979;
-  --main-color: #59c4cd;
-  --dark-blue: #284e7c;
-  --dark: #252525;
-  --darkEl: #353535;
-  --light: #fff;
-  --lightEl: #fafafa;
-  --lightBt: #eee;
+    /* --dark: #454545; */
+    --dark-gray: #797979;
+    --main-color: #59c4cd;
+    --dark-blue: #275d9e;
+    --dark: #252525;
+    --darkEl: #353535;
+    --light: #fff;
+    --lightEl: #fafafa;
+    --lightBt: #eee;
 }
+html[data-mode="dark"] {
+    color-scheme: dark;
+}
+
+html,
+body {
+    font-family: "alex";
+    scroll-behavior: smooth;
+    height: 100dvh;
+}
+html[dir="rtl"] * {
+    direction: rtl;
+}
+html[data-mode="dark"] ::selection {
+    background-color: var(--light);
+    color: black;
+}
+::selection {
+    background-color: var(--dark);
+    color: white;
+}
+
 ::-webkit-scrollbar {
-  width: 5px;
-  background-color: #0000;
+    width: 5px;
+    background-color: #0000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--dark);
+    background-color: var(--dark);
 }
 [tooltip] {
-  position: relative;
+    position: relative;
 }
 [tooltip]:hover::after {
-opacity: 1;
+    opacity: 1;
 }
-@media (min-width:768px) {
-html[data-mode="dark"] [tooltip]::after {
-  background-color: var(--darkEl);
-  color: #fff;
-}
+@media (min-width: 768px) {
+    html[data-mode="dark"] [tooltip]::after {
+        background-color: var(--darkEl);
+        color: #fff;
+    }
 
-[tooltip]::after {
-  user-select: none;
-  pointer-events: none;
-  text-transform: capitalize;
-  opacity: 0;
-  font-size: 10px;
-  white-space: nowrap;
-  color: #333;
-  background-color: var(--lightEl);
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px;
-  position: absolute;
-  content: attr(tooltip);
-  z-index: 1;
-  transform: translate(0%, 100%);
-  bottom: 0%; /* Position above the text */
-  margin-left: -100%;
-
-  transition: opacity 0.3s 0.3s;
-}
-
+    [tooltip]::after {
+        user-select: none;
+        pointer-events: none;
+        text-transform: capitalize;
+        opacity: 0;
+        font-size: 10px;
+        white-space: nowrap;
+        color: #333;
+        background-color: var(--lightEl);
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        content: attr(tooltip);
+        z-index: 1;
+        transform: translate(0%, 100%);
+        bottom: 0%; /* Position above the text */
+        margin-left: -100%;
+        transition: opacity 0.3s 0.3s;
+    }
 }

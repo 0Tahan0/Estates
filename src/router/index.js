@@ -2,6 +2,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 // import AboutView from "./AboutView.vue";
 // import Home from "../pages/HomeView.vue";
+
 const routes = [
   {
     path: "/",

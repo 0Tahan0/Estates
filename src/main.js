@@ -49,14 +49,16 @@ import ArticleCard from "./components/ArticleCard.vue";
 app.component("ArticleCard", ArticleCard);
 import AccordionsGroup from "./components/UI/AccordionsGroup.vue";
 app.component("AccordionsGroup", AccordionsGroup);
-import Wrapper from "./components/Wrapper.vue";
+import Wrapper from "./components/pagesComponents/Wrapper.vue";
 app.component("Wrapper", Wrapper);
-import WrapperEl from "./components/WrapperEl.vue";
+import WrapperEl from "./components/pagesComponents/WrapperEl.vue";
 app.component("WrapperEl", WrapperEl);
 import BlogCard from "./components/BlogCard.vue";
 app.component("BlogCard", BlogCard);
 import Loading from "./components/UI/Loading.vue";
 app.component("Loading", Loading);
+import ContextMenu from "./components/UI/ContextMenu.vue";
+app.component("ContextMenu", ContextMenu);
 import i18n from "./i18n/i18n.js";
 
 app.component("Icon", FontAwesomeIcon);

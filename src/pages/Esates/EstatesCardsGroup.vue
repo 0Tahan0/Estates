@@ -1,22 +1,23 @@
 <template>
-  <Wrapper>
-    <Container class="grid gap-5 md:grid-cols-3"> </Container>
-  </Wrapper>
+    <Wrapper>
+        <Container class="grid  gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <EstateCard
+                v-for="estate in estates"
+                :key="estate.id"
+                :item="estate"
+            />
+        </Container>
+    </Wrapper>
 </template>
 
 <script>
 export default {
-  // should get theme as API request
-  data: {
-    estats: [
-      // {
-      //   title: "شقة سكنية",
-      //   price: "5000",
-      //   date: new Date().toISOString(),
-      //   situation: 0,
-      //   // location:""
-      // },
-    ],
-  },
+    props: {
+        estates: {
+            type: Array,
+            default: [],
+        },
+    },
+
 };
 </script>
