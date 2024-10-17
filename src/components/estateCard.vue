@@ -1,5 +1,5 @@
 <template>
-  <WrapperEl class="shadow-md max-h-80 md:max-h-[30rem]">
+  <WrapperEl class="shadow-md max-h-80 md:max-h-[30rem] " >
     <div class="grid grid-cols-12 h-full grid-rows-12">
       <!-- situation (absolute box) -->
 
