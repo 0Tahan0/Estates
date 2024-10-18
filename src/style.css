@@ -19,12 +19,13 @@
 html[data-mode="dark"] {
     color-scheme: dark;
 }
-
 html,
 body {
     font-family: "alex";
     scroll-behavior: smooth;
     height: 100dvh;
+    width: 100%;
+    overflow-x: hidden;
 }
 html[dir="rtl"] * {
     direction: rtl;
