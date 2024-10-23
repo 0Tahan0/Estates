@@ -1,7 +1,6 @@
 <template>
   <Wrapper class="h-full text-sm">
-    <NavBar  />  
-    <router-view class="h-full " />
+    <router-view class="h-full" />
   </Wrapper>
 </template>
 <script>

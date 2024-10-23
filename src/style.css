@@ -13,7 +13,7 @@
     --dark: #252525;
     --darkEl: #353535;
     --light: #fff;
-    --lightEl: #fafafa;
+    --lightEl: #f8f8f8;
     --lightBt: #eee;
 }
 html[data-mode="dark"] {
@@ -38,7 +38,7 @@ html[data-mode="dark"] ::selection {
     background-color: var(--dark);
     color: white;
 }
-
+/* 
 ::-webkit-scrollbar {
     width: 5px;
     background-color: #0000;
@@ -46,12 +46,13 @@ html[data-mode="dark"] ::selection {
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--dark);
-}
+} */
 [tooltip] {
     position: relative;
 }
 [tooltip]:hover::after {
     opacity: 1;
+    z-index: 99999;
 }
 @media (min-width: 768px) {
     html[data-mode="dark"] [tooltip]::after {
@@ -60,6 +61,7 @@ html[data-mode="dark"] ::selection {
     }
 
     [tooltip]::after {
+
         user-select: none;
         pointer-events: none;
         text-transform: capitalize;
@@ -73,7 +75,6 @@ html[data-mode="dark"] ::selection {
         padding: 5px;
         position: absolute;
         content: attr(tooltip);
-        z-index: 1;
         transform: translate(0%, 100%);
         bottom: 0%; /* Position above the text */
         margin-left: -100%;

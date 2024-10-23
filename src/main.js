@@ -43,6 +43,8 @@ import Swiper from "./components/UI/Swiper.vue";
 app.component("Swiper", Swiper);
 import Field from "./components/UI/Field.vue";
 app.component("Field", Field);
+import TextArea from "./components/UI/TextArea.vue";
+app.component("TextArea", TextArea);
 import Select from "./components/UI/Select.vue";
 app.component("Select", Select);
 import Button from "./components/UI/Button.vue";
@@ -55,6 +57,10 @@ import Loading from "./components/UI/Loading.vue";
 app.component("Loading", Loading);
 import ContextMenu from "./components/UI/ContextMenu.vue";
 app.component("ContextMenu", ContextMenu);
+import Gallery from "./components/UI/Gallery.vue";
+app.component("Gallery", Gallery);
+import Modal from "./components/UI/Modal.vue";
+app.component("Modal", Modal);
 // =========================================================
 //normal
 import ItemCard from "./components/ItemCard.vue";

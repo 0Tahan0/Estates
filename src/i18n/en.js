@@ -3,6 +3,10 @@ export default {
     Email: "email",
     Username: "username",
     Password: "password",
+    Delete: "delete",
+    Modify: "modify",
+    Send: "send",
+    ShowDetails: "show details",
   },
   ui: {
     Home: "home",

@@ -1,4 +1,5 @@
 <template>
+      <NavBar  />  
   <PageSplitter>
     <Container>
       <Title size="xl" title="hello" />

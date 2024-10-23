@@ -1,5 +1,6 @@
 <template>
   <Wrapper>
+    <NavBar />
     <PageSplitter>
       <Container class="grid md:grid-cols-2 gap-10 items-center">
         <Section :title="$t('ui.AboutUs')">

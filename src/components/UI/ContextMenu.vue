@@ -24,22 +24,8 @@ export default {
       showMenu: false,
     };
   },
-  methods: {
-    checkOutOfContainer(e) {
-      const menuBox = this.$refs.contextmenu_box;
-      this.showMenu = menuBox.contains(e.target);
-    },
-  },
-  watch: {
-    showMenu(val) {
-      if (val) {
-        window.addEventListener("click", (e) => this.checkOutOfContainer(e));
-      }
-    },
-  },
-  // beforeUnmount() {
-  //     window.removeEventListener("click");
-  // },
+ 
+  
 };
 </script>
 <style>

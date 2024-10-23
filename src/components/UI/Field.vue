@@ -1,12 +1,15 @@
 <template>
   <div
-    class="outline-none border shadow-sm justify-between flex p-0.5 text-slate-600 dark:text-gray-300 relative"
+    ref="parentElement"
+    class="outline-none transition-all ring-1 ring-gray-500 shadow-sm justify-between flex p-0.5 text-slate-600 dark:text-gray-300 relative"
     :class="customizeFocusedStyle"
+    :style="{ borderRadius: Rounded }"
     @click="handleDivClick()"
   >
     <p
+      ref="label"
       v-if="label"
-      class="absolute select-none capitalize top-0 transition-all h-1/2 before:absolute before:top-1.5 before:left-0 before:w-full before:-z-10 before:h-1.5 before:bg-light dark:before:bg-dark"
+      class="LABEL absolute select-none capitalize transition-all before:absolute before:top-1.5 before:left-0 before:w-full before:-z-10 before:h-1.5 dark:before:bg-dark before:bg-light"
       :class="customizeFocusedLabel"
     >
       {{ label }}
@@ -19,7 +22,7 @@
       :type="fieldType"
       :value="inputValue"
       :placeholder="placeholder"
-      class="outline-none p-2 text-inherit dark:text-white flex-grow bg-transparent"
+      class="outline-none p-2 accent-mainColor text-inherit dark:text-white flex-grow bg-transparent placeholder:capitalize"
     />
     <button
       @click="$emit('click', $event)"
@@ -31,7 +34,7 @@
     <transition name="errorMsg">
       <p
         v-if="Boolean(validation)"
-        class="bg-red-700 bg-opacity-50 text-start text-white p-2 absolute top-full left-0 w-full text-xs -z-10 transition-all"
+        class="bg-red-700 text-start text-white p-2 absolute top-full left-0 w-full text-xs z-10 transition-all"
       >
         {{ validation.trim() }}
       </p>
@@ -40,6 +43,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   emits: ["update:modelValue", "input", "click"],
   props: {
@@ -78,36 +83,47 @@ export default {
   },
   data() {
     return {
+      typesAllowed: ["text", "email", "password", "number"],
       isFocused: false,
       initValue: null,
+      color: null,
     };
   },
   computed: {
+    ...mapGetters(["Rounded"]),
     customizeIconClass() {
       return `${this.iconClass} w-10 hover:border text-inherit`;
     },
     customizeFocusedStyle() {
-      return `ring-1 ${this.isFocused ? '' : ''} ${this.validation ? 'ring-red-500' : ''}`;
+      return ` ${this.isFocused ? "ring-2 ring-mainColor " : ""} ${
+        this.validation ? "ring-red-500 ring-1" : ""
+      }`;
     },
     customizeFocusedLabel() {
-      return this.isFocused || this.modelValue || this.value ? ' -translate-y-1/2 text-xs px-1 ' : ' translate-y-1/2';
+      return this.isFocused || this.modelValue || this.value
+        ? " -translate-y-1/2 text-xs px-1 top-0 "
+        : " top-1/2 -translate-y-1/2 ms-1";
     },
     fieldType() {
-      return ['text', 'email', 'password', 'number'].includes(this.type) ? this.type : 'text';
+      return this.typesAllowed.includes(this.type) ? this.type : "text";
     },
     inputValue() {
-      return this.modelValue !== undefined ? this.modelValue : this.value || '';
+      return this.modelValue !== undefined ? this.modelValue : this.value || "";
     },
   },
   methods: {
-    handleDivClick() { // Fixed spelling
+    handleDivClick() {
+      // Fixed spelling
       this.$refs.inp.focus();
     },
-  handleInput(e) {
-    const newValue = e.target.value;
-    this.$emit('update:modelValue', newValue);
-    this.$emit('input', newValue);
+    handleInput(e) {
+      const newValue = e.target.value;
+      this.$emit("update:modelValue", newValue);
+      this.$emit("input", newValue);
+    },
   },
+  mounted() {
+    const label = this.$refs?.label;
   },
 };
 </script>

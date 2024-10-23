@@ -1,7 +1,4 @@
-// import { createMemoryHistory, createRouter } from "vue-router";
 import { createRouter, createWebHistory } from "vue-router";
-// import AboutView from "./AboutView.vue";
-// import Home from "../pages/HomeView.vue";
 
 const routes = [
   {
@@ -23,8 +20,25 @@ const routes = [
     path: "/Estates",
     component: () => import("../pages/Esates/EstatesView.vue"),
     name: "Estates",
+    children: [
+      {
+        path: ":id",
+        component: () => import("../pages/Esates/EstateDetails.vue"),
+        name: "EstateDetails",
+        props: true,
+      },
+    ],
   },
-  //   { path: "/about", component: AboutView },
+
+  /*
+  
+  const routes = [
+  // will match everything and put it under `route.params.pathMatch`
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+  // will match anything starting with `/user-` and put it under `route.params.afterUser`
+  { path: '/user-:afterUser(.*)', component: UserGeneric },
+]
+  */
 ];
 
 const router = createRouter({

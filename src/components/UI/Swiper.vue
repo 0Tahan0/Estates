@@ -22,7 +22,12 @@
       <div
         v-for="(group, index) in groupedSlots"
         :key="index"
-        class="min-w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        class="min-w-full gap-4 content-center"
+        :class="
+          elementsCount != 0
+            ? 'flex items-center justify-center'
+            : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 '
+        "
       >
         <!-- Slot Content (Custom Slides) -->
         <slot v-for="slotContent in group" :slotContent="slotContent"></slot>
@@ -45,13 +50,16 @@
 
     <!-- Pagination Dots -->
     <div class="absolute bottom-0 w-full flex justify-center gap-2">
-      <span
-        v-for="(group, index) in groupedSlots"
-        :key="index"
-        @click="goToSlide(index)"
-        class="cursor-pointer w-5 h-2"
-        :class="currentIndex === index ? 'bg-mainColor' : 'bg-gray-400'"
-      ></span>
+      <span v-if="slides < 12">
+        <span
+          v-for="(group, index) in groupedSlots"
+          :key="index"
+          @click="goToSlide(index)"
+          class="cursor-pointer w-5 h-2"
+          :class="currentIndex === index ? 'bg-mainColor' : 'bg-gray-400'"
+        ></span>
+      </span>
+      <span v-else class="p-1 rounded-full bg-black bg-opacity-10">{{ currentIndex + 1 }}/{{ slides }}</span>
     </div>
   </div>
 </template>
@@ -60,6 +68,10 @@
 export default {
   props: {
     slides: {
+      type: Number, // Number of slides expected
+      default: 0,
+    },
+    elementsCount: {
       type: Number, // Number of slides expected
       default: 0,
     },
@@ -78,11 +90,13 @@ export default {
   computed: {
     groupedSlots() {
       let perSlide = 1; // Default for small screens
-      if (this.windowWidth >= 1024) {
-        perSlide = 3; // 3 items per slide for large screens
-      } else if (this.windowWidth >= 640) {
-        perSlide = 2; // 2 items per slide for medium screens
-      }
+      if (!this.elementsCount) {
+        if (this.windowWidth >= 1024) {
+          perSlide = 3; // 3 items per slide for large screens
+        } else if (this.windowWidth >= 640) {
+          perSlide = 2; // 2 items per slide for medium screens
+        }
+      } else perSlide = this.elementsCount;
       return this.chunkArray([...Array(this.slides).keys()], perSlide);
     },
   },

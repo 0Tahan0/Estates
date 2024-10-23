@@ -1,79 +1,53 @@
 <template>
-  <WrapperEl class="shadow-md max-h-80 md:max-h-[30rem] " >
-    <div class="grid grid-cols-12 h-full grid-rows-12">
-      <!-- situation (absolute box) -->
-
-      <!-- img box -->
-      <div
-        class="col-span-6 md:col-span-12 md:row-span-6 row-span-full group relative"
+  <WrapperEl class="h-[28rem] hover:ring-8 transition-all ring-gray-600/10">
+    <Modal v-if="DeleteEstateConfirm" @close="DeleteEstateConfirm = false"
+      >hello</Modal
+    >
+    <div
+      class="h-1/2 group overflow-hidden cursor-pointer relative"
+      @click="showDetails()"
+    >
+      <span
+        class="absolute top-0 m-2 p-1 text-xs"
+        :style="{ backgroundColor: getSituation.color }"
+        >{{ getSituation.title }}</span
       >
-        <div
-          class="absolute top-0 flex items-center justify-between w-full p-2"
-        >
-          <span
-            class="capitalize text-gray-100 p-0.5 text-xs"
-            :style="{
-              backgroundColor: getSituation.color,
-            }"
-          >
-            {{ getSituation.title }}
-          </span>
-          <ContextMenu>
-            <div class="grid">
-              <Button class="flex items-center justify-between gap-2"
-                ><p>share</p>
-                <Icon icon="fa-solid fa-share"
-              /></Button>
-              <Button class="flex items-center justify-between gap-2"
-                ><p>details</p>
-                <Icon icon="fa-solid fa-circle-info"
-              /></Button>
-            </div>
-          </ContextMenu>
-        </div>
-        <div class="absolute bottom-0 m-2 flex items-center gap-2">
-          <IconBtn
-            v-if="item?.attachments?.length > 0"
-            icon="fa-regular fa-image"
-            class="text-gray-300 bg-black bg-opacity-25"
-          />
-        </div>
-
-        <img
-          :draggable="false"
-          :src="item?.attachments ? item?.attachments[0] : ''"
-          :alt="item?.title || 'no photo'"
-          class="w-full h-full object-cover select-none"
-        />
+      <img
+        v-if="item?.attachments?.length > 0 || false"
+        :src="item.attachments[0]"
+        :alt="item?.title"
+        class="w-full h-full object-cover group-hover:scale-105 transition-all"
+      />
+      <div v-else class="h-full w-full">
+        <Icon icon="fa-regular fa-image" class="w-full h-full" />
+        <Title title="no image available" class="text-center" />
       </div>
-      <!-- content box -->
-      <div
-        class="col-span-6 flex flex-col md:col-span-12 p-2 md:p-4 md:row-span-6 row-span-full"
-      >
-        <div class="flex justify-between items-center">
-          <Title size="sm" :title="item?.title" :smallTitle="item?.code" />
-          <span>{{ getPrice }}</span>
+    </div>
+    <div class="p-2 grid gap-2">
+      <ContextMenu icon="fa-solid fa-ellipses">
+        <div class="grid">
+          <Button
+            @click="DeleteEstateConfirm = true"
+            class="flex items-center gap-2"
+            ><span>{{ $t("fields.Delete") }}</span>
+            <Icon icon="fa-solid fa-trash"
+          /></Button>
+          <Button class="flex items-center gap-2"
+            ><span>{{ $t("fields.Modify") }}</span>
+            <Icon icon="fa-solid fa-pen"
+          /></Button>
         </div>
-        <div class="space-y-2">
-          <div class="flex items-center justify-between text-xs select-none">
-            <p>{{ $t("ui.type") }}</p>
-            <p>{{ item?.type }}</p>
-          </div>
-          <div class="flex items-center justify-between text-xs select-none">
-            <p>{{ $t("ui.date") }}</p>
-            <p>{{ getDate }}</p>
-          </div>
-        </div>
-        <Title size="sm" :title="$t('ui.properties')" />
-        <div class="overflow-auto flex-grow">
-          <div
-            v-for="(prop, ind) in item?.properties"
-            :key="ind"
-            class="flex md:hover:text-darkBlue transition-color mt-2 items-center justify-between text-xs select-none"
-          >
-            <p>{{ prop.title_ar }}</p>
-            <p class="me-1">{{ prop.value_ar }}</p>
-          </div>
+      </ContextMenu>
+      <Title :title="item?.title" align="center" />
+      <Button @click="showDetails()">{{ $t("fields.ShowDetails") }}</Button>
+      <div class="grid grid-cols-3 text-xs h-full">
+        <div
+          v-for="(ecp, ind) in estateCardProp"
+          :key="ind"
+          class="flex items-center h-12 justify-between gap-2 select-none p-2 border-x dark:border-stone-600 text-center"
+        >
+          <Icon :icon="ecp.icon" />
+          <p class="text-ellipsis overflow-hidden">{{ ecp.title }}</p>
         </div>
       </div>
     </div>
@@ -89,10 +63,39 @@ export default {
   },
   data() {
     return {
+      DeleteEstateConfirm: false,
       location: this.$props.item?.location,
     };
   },
   computed: {
+    estateCardProp() {
+      return [
+        {
+          title: this.getPrice,
+          icon: "fa-solid fa-money-bill",
+        },
+        {
+          title: this.getSituation.title,
+          icon: "fa-solid fa-building",
+        },
+        {
+          title: this.getDate,
+          icon: "fa-solid fa-calendar-days",
+        },
+        {
+          title: this.location.title,
+          icon: "fa-solid fa-location-dot",
+        },
+        {
+          title: "istanbul" || "unKnown",
+          icon: "fa-solid fa-earth-americas",
+        },
+        {
+          title: this.item?.properties?.length || 0,
+          icon: "fa-solid fa-bed",
+        },
+      ];
+    },
     getPrice() {
       const currencyType = this.item?.currencyType == 0 ? "₺" : "$";
       const price = this.item?.price || 0;
@@ -108,6 +111,18 @@ export default {
     },
     getDate() {
       return this.item?.date.toLocaleDateString();
+    },
+  },
+  methods: {
+    showDetails() {
+      console.log(this.$router);
+      // this.$router.push({
+      //   path:`estate-details/${this.item.id}`
+      // })
+      this.$router.push({
+        name: "EstateDetails",
+        params: { id: this.item.id },
+      });
     },
   },
 };
