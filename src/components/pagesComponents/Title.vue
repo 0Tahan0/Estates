@@ -1,7 +1,7 @@
 <template>
   <div class="capitalize select-none" :style="{ textAlign: align }">
     <p
-      class="text-darkBlue dark:text-white text-base md:lg lg:text-2xl font-bold"
+      class="text-dark dark:text-white text-base md:lg lg:text-2xl font-bold"
     >
       <span :style="`font-size : ${customizfontSize}`">
         <slot>{{ title }}</slot>

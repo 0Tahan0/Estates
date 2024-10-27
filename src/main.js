@@ -27,6 +27,8 @@ import Wrapper from "./components/pagesComponents/Wrapper.vue";
 app.component("Wrapper", Wrapper);
 import WrapperEl from "./components/pagesComponents/WrapperEl.vue";
 app.component("WrapperEl", WrapperEl);
+import ImageBox from "./components/pagesComponents/ImageBox.vue";
+app.component("ImageBox", ImageBox);
 // =========================================================
 //  layouts
 import Logo from "./layout/Logo.vue";
@@ -61,12 +63,18 @@ import Gallery from "./components/UI/Gallery.vue";
 app.component("Gallery", Gallery);
 import Modal from "./components/UI/Modal.vue";
 app.component("Modal", Modal);
+import DropZone from "./components/UI/DropZone.vue";
+app.component("DropZone", DropZone);
+import CheckBox from "./components/UI/CheckBox.vue";
+app.component("CheckBox", CheckBox);
+import Map from "./components/UI/Map.vue";
+app.component("Map", Map);
 // =========================================================
 //normal
 import ItemCard from "./components/ItemCard.vue";
 app.component("ItemCard", ItemCard);
-import ImageBox from "./components/ImageBox.vue";
-app.component("ImageBox", ImageBox);
+import ImageCard from "./components/ImageCard.vue";
+app.component("ImageCard", ImageCard);
 import EstateCard from "./components/estateCard.vue";
 app.component("EstateCard", EstateCard);
 

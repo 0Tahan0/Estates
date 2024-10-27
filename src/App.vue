@@ -1,6 +1,6 @@
 <template>
   <Wrapper class="h-full text-sm">
-    <router-view class="h-full" />
+    <router-view  />
   </Wrapper>
 </template>
 <script>

@@ -1,8 +1,9 @@
 <template>
   <button
-    class="w-fit relative m-1 shadow-md p-2 min-w-32 text-xs md:text-sm"
+    class="w-fit select-none dark:bg-dark bg-light relative shadow-md px-1.5 py-2.5 min-w-32 text-xs md:text-sm  ring-1 ring-gray-500"
+    :class="{'ring-mainColor ring-2': open}"
     @click="open = !open"
-    :style="open ? 'z-index:41 ' : ''"
+    :style="{ 'z-index:40 ': open, borderRadius: $store.getters.Rounded }"
   >
     <div class="flex justify-between items-center">
       <!-- <slot #title></slot> -->
@@ -23,6 +24,7 @@
         v-show="open"
         :style="maxHeight ? `max-height:${maxHeight}` : ''"
         :class="customizeOptionBoxClass"
+        class="ring-1 ring-gray-500"
       >
         <div ref="content">
           <slot></slot>
@@ -59,7 +61,7 @@ export default {
       return (
         this.optionClass +
         " " +
-        " bg-inherit text-left absolute left-0 -bottom-2 translate-y-full min-w-full w-fit overflow-y-auto shadow-sm shadow-black/50 px-0.5 py-0.5 md:px-0.5 md:py-0.5 z-50"
+        " bg-light dark:bg-dark  text-left absolute left-0 -bottom-2 translate-y-full min-w-full w-fit overflow-y-auto shadow-sm shadow-black/50 px-0.5 py-0.5 md:px-0.5 md:py-0.5 z-50"
       );
     },
   },
@@ -82,7 +84,7 @@ export default {
 
     if (options.length != 0) {
       options.forEach((op) => {
-        op.className = `p-2 text-xs md:text-sm hover:bg-gray-200 text-black  cursor-pointer`;
+        op.className = `p-2 text-xs md:text-sm  hover:bg-gray-200 dark:hover:bg-gray-700 text-black dark:text-white   cursor-pointer`;
         op.addEventListener("click", () => this.selectItem(op));
       });
       if (title.textContent == "" && this.title == "")

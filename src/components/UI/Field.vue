@@ -1,7 +1,7 @@
 <template>
   <div
     ref="parentElement"
-    class="outline-none transition-all ring-1 ring-gray-500 shadow-sm justify-between flex p-0.5 text-slate-600 dark:text-gray-300 relative"
+    class="outline-none dark:bg-dark bg-light transition-all ring-1 ring-gray-500 shadow-sm justify-between flex p-0.5 text-slate-600 dark:text-gray-300 relative"
     :class="customizeFocusedStyle"
     :style="{ borderRadius: Rounded }"
     @click="handleDivClick()"
@@ -20,6 +20,9 @@
       @input="handleInput($event)"
       ref="inp"
       :type="fieldType"
+      :min="min"
+      :max="max"
+      :maxlength="maxlength"
       :value="inputValue"
       :placeholder="placeholder"
       class="outline-none p-2 accent-mainColor text-inherit dark:text-white flex-grow bg-transparent placeholder:capitalize"
@@ -48,6 +51,18 @@ import { mapGetters } from "vuex";
 export default {
   emits: ["update:modelValue", "input", "click"],
   props: {
+    min: {
+      type: Number,
+      default: null,
+    },
+    max: {
+      type: Number,
+      default: null,
+    },
+    maxlength: {
+      type: Number,
+      default: null,
+    },
     value: {
       type: String,
       default: null,

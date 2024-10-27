@@ -1,19 +1,28 @@
 <template>
-  <Container class="relative flex flex-col">
+  <div class="relative flex flex-col p-2">
     <Carousel
-      :fullImage="false"
-      :current="current"
+      :fullImage="fullImage"
+      :current="currentIndex"
       :slides="images.map((e) => (e = { image: e }))"
-      class="max-w-screen-lg h-full flex-grow"
-      :controls="false"
+      class="flex-grow"
+      :controls="controls"
+      @move="$emit('move', $event)"
     />
-    <div class=" w-full h-1/4">
-      <Swiper :elementsCount="3" :slides="images.length" class="h-full">
+    <div class="w-full h-fit">
+      <slot></slot>
+      <Swiper
+        :elementsCount="elementsCount"
+        :slides="images.length"
+        class="h-full"
+      >
         <template v-slot="{ slotContent }">
-          <button
-            @click="current = images.indexOf(images[slotContent])"
-            class="grid place-items-center h-full scale-none transition-all"
-            :class="{'scale-90 grayscale':(current != images.indexOf(images[slotContent]))}"
+          <div
+            @click="currentIndex = images.indexOf(images[slotContent])"
+            class="h-[100px] scale-90 cursor-pointer w-[100px] overflow-hidden transition-all"
+            :class="{
+              'scale-100  border-b-4 border-mainColor ':
+                currentIndex == images.indexOf(images[slotContent]),
+            }"
           >
             <img
               :draggable="false"
@@ -21,22 +30,44 @@
               alt="photo"
               class="w-full max-w-full object-cover select-none h-full max-h-full"
             />
-          </button>
+          </div>
         </template>
       </Swiper>
     </div>
-  </Container>
+  </div>
 </template>
 
 <script>
 export default {
+  emits: ["move"],
   props: {
     images: { type: Array, default: [] },
+    fullImage: {
+      type: Boolean,
+      default: false,
+    },
+    current: {
+      type: Number,
+      default: 0,
+    },
+    controls: {
+      type: Boolean,
+      default: true,
+    },
+    elementsCount: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
-      current: 0,
+      currentIndex: this.$props.current,
     };
+  },
+  watch: {
+    current(val) {
+      this.currentIndex = val;
+    },
   },
 };
 </script>

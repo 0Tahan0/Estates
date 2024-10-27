@@ -1,7 +1,7 @@
 <template>
   <div
     ref="parentElement"
-    class="outline-none transition-all ring-1 ring-gray-500 shadow-sm justify-between flex p-0.5 text-slate-600 dark:text-gray-300 relative"
+    class="outline-none dark:bg-dark bg-light transition-all ring-1 ring-gray-500 shadow-sm justify-between flex p-0.5 text-slate-600 dark:text-gray-300 relative"
     :class="customizeFocusedStyle"
     @click="handleDivClick()"
     :style="{ borderRadius: Rounded }"
@@ -9,7 +9,7 @@
     <p
       ref="label"
       v-if="label"
-      class="LABEL absolute select-none capitalize transition-all before:absolute before:top-1.5 before:left-0 before:w-full before:-z-10 before:h-1.5 before:backdrop-brightness-200 before:backdrop-blur-3xl dark:before:bg-black/70"
+      class="LABEL absolute select-none capitalize transition-all before:absolute before:top-1.5 before:left-0 before:w-full before:-z-10 before:h-1.5 dark:before:bg-dark before:bg-light"
       :class="customizeFocusedLabel"
     >
       {{ label }}
@@ -23,6 +23,7 @@
       :value="inputValue"
       :placeholder="placeholder"
       class="outline-none p-2 text-inherit dark:text-white flex-grow bg-transparent placeholder:capitalize"
+      :rows="rows"
     />
     <button
       @click="$emit('click', $event)"
@@ -76,6 +77,10 @@ export default {
       type: String,
       default: "",
     },
+    rows: {
+      type: Number,
+      default: 1,
+    },
     modelValue: {
       type: String,
       default: null, // Moved to be part of the object
@@ -94,7 +99,7 @@ export default {
       return `${this.iconClass} w-10 hover:border text-inherit`;
     },
     customizeFocusedStyle() {
-      return ` ${this.isFocused ? "ring-2 dark:ring-gray-400  " : ""} ${
+      return ` ${this.isFocused ? "ring-2 ring-mainColor  " : ""} ${
         this.validation ? "ring-red-500 ring-1" : ""
       }`;
     },

@@ -5,7 +5,7 @@
   >
     <Swiper :slides="projects.length">
       <template v-slot="{ slotContent }">
-        <ImageBox :project="projects[slotContent]" />
+        <ImageCard :project="projects[slotContent]" />
       </template>
     </Swiper>
   </Section>

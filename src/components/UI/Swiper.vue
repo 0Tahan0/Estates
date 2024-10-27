@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative w-full overflow-x-hidden overflow-y-clip pt-2 pb-5"
+    class="relative w-full overflow-x-hidden overflow-y-clip| py-3"
     dir="rtl"
     @mousedown="startDrag"
     @touchstart="startDrag"
@@ -22,11 +22,15 @@
       <div
         v-for="(group, index) in groupedSlots"
         :key="index"
-        class="min-w-full gap-4 content-center"
-        :class="
+        class="min-w-full content-center gap-2"
+        :style="
           elementsCount != 0
-            ? 'flex items-center justify-center'
-            : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 '
+            ? `grid-template-columns: repeat(${elementsCount}, minmax(0, 1fr)); display:grid;`
+            : ''
+        "
+        :class="
+          elementsCount == 0 &&
+          'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 '
         "
       >
         <!-- Slot Content (Custom Slides) -->
@@ -49,8 +53,8 @@
     </button>
 
     <!-- Pagination Dots -->
-    <div class="absolute bottom-0 w-full flex justify-center gap-2">
-      <span v-if="slides < 12">
+    <div class="absolute bottom-2 left-1/2 -translate-x-1/2">
+      <span v-if="slides < 12 " class="flex justify-center gap-2">
         <span
           v-for="(group, index) in groupedSlots"
           :key="index"
@@ -59,7 +63,9 @@
           :class="currentIndex === index ? 'bg-mainColor' : 'bg-gray-400'"
         ></span>
       </span>
-      <span v-else class="p-1 rounded-full bg-black bg-opacity-10">{{ currentIndex + 1 }}/{{ slides }}</span>
+      <span v-else class="p-1 rounded-full bg-black bg-opacity-10"
+        >{{ currentIndex + 1 }}/{{ slides }}</span
+      >
     </div>
   </div>
 </template>
@@ -88,6 +94,9 @@ export default {
     };
   },
   computed: {
+    lessThanNumber() {
+      return this.slides < 12;
+    },
     groupedSlots() {
       let perSlide = 1; // Default for small screens
       if (!this.elementsCount) {

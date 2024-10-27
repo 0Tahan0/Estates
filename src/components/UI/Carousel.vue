@@ -45,24 +45,27 @@
     </button>
 
     <!-- Indicators -->
-    <div class="absolute bottom-2 left-0 right-0 flex justify-center gap-2" v-if="controls">
-      <span v-if="slides.length < 12">
+    <div class="absolute bottom-2 -translate-x-1/2 left-1/2 " v-if="controls">
+      <span v-if="slides?.length < 15" class="flex justify-center gap-2">
         <span
           v-for="(slide, index) in slides"
           :key="index"
           @click="setCurrentSlide(index)"
-          class="cursor-pointer h-3 w-3 rounded-full"
-          :class="currentIndex === index ? 'bg-white' : 'bg-gray-400'"
+          class="cursor-pointer w-5 h-2"
+          :class="currentIndex === index ? 'bg-mainColor' : 'bg-gray-400'"
         >
         </span>
       </span>
-      <span v-else class="p-1 rounded-full bg-black bg-opacity-10">{{ currentIndex + 1 }}/{{ slides.length }}</span>
+      <span v-else class="p-1 rounded-full bg-black bg-opacity-10"
+        >{{ currentIndex + 1 }}/{{ slides.length }}</span
+      >
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  emits: ["move"],
   props: {
     slides: {
       type: Array,
@@ -98,6 +101,9 @@ export default {
   watch: {
     current(val) {
       this.currentIndex = val;
+    },
+    currentIndex(val) {
+      this.$emit("move", val);
     },
   },
   methods: {

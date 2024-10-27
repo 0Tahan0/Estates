@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-5">
-    <Title title="about the project" />
+    <Title :title="$t('ui.AboutTheProject')" />
     <!-- <Field placeholder="name" />
         <Field placeholder="phone number" />
         <Field placeholder="email" />
@@ -14,8 +14,10 @@
       :validation="input.validation"
       v-model="input.value"
     />
-    <TextArea :placeholder="$t('fields.EstatePropertiesWanted')" />
-    <Button :disabled="fullFields">{{$t('fields.send')}}</Button>
+    <TextArea :rows="3" :label="$t('fields.RequiredEstateSpecifications')" />
+    <Button class="bg-mainColor dark:bg-mainColor" :disabled="fullFields">{{
+      $t("fields.Send")
+    }}</Button>
   </div>
 </template>
 
@@ -64,12 +66,14 @@ export default {
 
         this.$t("fields.Email"),
 
-        this.$t('fields.BestTimeToBontact'),
+        this.$t("fields.BestTimeToContact"),
       ];
     },
     fullFields() {
-      return !Boolean(this.inputs.filter((item) => item.value != "").length === this.inputs.length)
-      
+      return !Boolean(
+        this.inputs.filter((item) => item.value != "").length ===
+          this.inputs.length
+      );
     },
   },
 };

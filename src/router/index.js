@@ -27,6 +27,12 @@ const routes = [
         name: "EstateDetails",
         props: true,
       },
+      {
+        path: "Generator",
+        component: () => import("../pages/Esates/Generator/Generator.vue"),
+        name: "Generator",
+        props: true,
+      },
     ],
   },
 

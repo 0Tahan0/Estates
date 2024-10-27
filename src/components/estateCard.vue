@@ -44,7 +44,7 @@
         <div
           v-for="(ecp, ind) in estateCardProp"
           :key="ind"
-          class="flex items-center h-12 justify-between gap-2 select-none p-2 border-x dark:border-stone-600 text-center"
+          class="flex items-center  justify-between gap-2 select-none p-2 border-x dark:border-stone-600 text-center"
         >
           <Icon :icon="ecp.icon" />
           <p class="text-ellipsis overflow-hidden">{{ ecp.title }}</p>
