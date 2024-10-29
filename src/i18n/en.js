@@ -69,6 +69,7 @@ export default {
     Map: "map",
     Manual: "manual",
     Attachments: "attachments",
+    Properties: "properties",
   },
   uiText: {
     AboutUsText:

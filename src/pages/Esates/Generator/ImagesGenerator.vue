@@ -13,13 +13,13 @@
           class="h-52"
         />
       </div>
-      <div v-if="estate.attachments && estate.attachments.length">
+      <div v-if="estate.attachments && estate.attachments.size">
         <Gallery
-          class="mt-5 h-[90dvh] max-w-full"
+          class="mt-5 max-w-full"
           :current="current"
           :elementsCount="7"
-          :fullImage="false"
-          :images="estate.attachments"
+          :fullImage="true"
+          :images="Array.from(this.estate.attachments)"
           @move="handleMove"
         >
           <div class="flex gap-2">
@@ -53,53 +53,44 @@ export default {
   },
   methods: {
     handleImageUpload(images) {
-      if (images && images.length) {
-        this.estate.attachments = [...this.estate.attachments, ...images];
-      } else {
-        console.error("No images uploaded.");
-      }
+      this.estate.attachments = new Set([...images]);
     },
     handleMove(val) {
-      if (val >= 0 && val < this.estate.attachments.length) {
+      if (val >= 0 && val < this.estate.attachments.size) {
         this.currentIndex = val;
       }
     },
     deleteImage() {
-      if (this.estate.attachments.length > 0) {
-        this.estate.attachments = this.estate.attachments.filter(
-          (img) => img != this.estate.attachments[this.currentIndex]
+      if (this.estate.attachments.size > 0) {
+        this.estate.attachments.delete(
+          Array.from(this.estate.attachments)[this.currentIndex]
         );
 
         // Adjust current index
-        if (this.estate.attachments.length === 0) {
-          this.currentIndex = 0;
-          this.current = 0;
-        } else {
-          this.currentIndex = this.estate.attachments.length - 1;
+        if (this.currentIndex > this.estate.attachments.size - 1) {
+          this.currentIndex = this.estate.attachments.size - 1;
           this.current = this.currentIndex;
         }
       }
     },
     setAsBackground() {
       if (
-        this.estate.attachments.length > 0 &&
-        this.currentIndex >= 0 &&
-        this.currentIndex < this.estate.attachments.length
+        this.estate.attachments.size > 0 &&
+        this.currentIndex > 0 &&
+        this.currentIndex < this.estate.attachments.size
       ) {
-        const temp = this.estate.attachments[this.currentIndex];
-        this.deleteImage();
-
+        let temp = Array.from(this.estate.attachments)[this.currentIndex];
         if (temp) {
-          this.estate.attachments.unshift(temp);
-          this.currentIndex = 0; // Set the new current index to the background image
-          this.current = 0; // Update current to the new first image
+          this.deleteImage();
+          this.estate.attachments = new Set([
+            temp,
+            ...Array.from(this.estate.attachments),
+          ]);
+          temp = null;
+          this.currentIndex += 1;
         }
       }
     },
   },
 };
 </script>
-
-<style scoped>
-/* Add any additional styles here */
-</style>

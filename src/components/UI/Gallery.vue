@@ -18,9 +18,9 @@
         <template v-slot="{ slotContent }">
           <div
             @click="currentIndex = images.indexOf(images[slotContent])"
-            class="h-[100px] scale-90 cursor-pointer w-[100px] overflow-hidden transition-all"
+            class="h-[100px] scale-90 cursor-pointer min-w-[100px] overflow-hidden transition-all"
             :class="{
-              'scale-100  border-b-4 border-mainColor ':
+              'scale-100  ring-4 ring-offset-2  ring-mainColor ':
                 currentIndex == images.indexOf(images[slotContent]),
             }"
           >

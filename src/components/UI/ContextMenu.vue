@@ -9,8 +9,8 @@
       <Transition>
         <WrapperEl
           v-if="showMenu"
-          class="absolute shadow-md top-8 left-0 -ms-12 z-50"
-        >
+          class="absolute shadow-md top-8 me-auto  ms-12 z-50"
+          >
           <slot></slot>
         </WrapperEl>
       </Transition>
@@ -24,8 +24,6 @@ export default {
       showMenu: false,
     };
   },
- 
-  
 };
 </script>
 <style>

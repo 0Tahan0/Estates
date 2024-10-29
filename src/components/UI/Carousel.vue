@@ -1,5 +1,11 @@
 <template>
-  <div dir="rtl" class="carousel-container relative w-full h-full mx-auto">
+  <div
+    dir="rtl"
+    class="carousel-container relative w-full h-full mx-auto"
+    @touchstart="startTouch"
+    @touchmove="moveTouch"
+    @touchend="endTouch"
+  >
     <!-- Slides -->
     <div
       class="carousel-slides flex transition-transform duration-500 ease-in-out h-full"
@@ -27,6 +33,7 @@
         >
       </div>
     </div>
+
     <!-- Next Button -->
     <button
       v-if="controls"
@@ -45,7 +52,7 @@
     </button>
 
     <!-- Indicators -->
-    <div class="absolute bottom-2 -translate-x-1/2 left-1/2 " v-if="controls">
+    <div class="absolute bottom-2 -translate-x-1/2 left-1/2" v-if="controls">
       <span v-if="slides?.length < 15" class="flex justify-center gap-2">
         <span
           v-for="(slide, index) in slides"
@@ -56,9 +63,9 @@
         >
         </span>
       </span>
-      <span v-else class="p-1 rounded-full bg-black bg-opacity-10"
-        >{{ currentIndex + 1 }}/{{ slides.length }}</span
-      >
+      <span v-else class="p-1 rounded-full bg-black bg-opacity-10">
+        {{ currentIndex + 1 }}/{{ slides.length }}
+      </span>
     </div>
   </div>
 </template>
@@ -69,7 +76,7 @@ export default {
   props: {
     slides: {
       type: Array,
-      default: [],
+      default: () => [],
     },
     autoPlay: {
       type: Boolean,
@@ -96,6 +103,8 @@ export default {
     return {
       currentIndex: 0,
       time: 7000,
+      startX: 0,
+      endX: 0,
     };
   },
   watch: {
@@ -117,6 +126,19 @@ export default {
     },
     setCurrentSlide(index) {
       this.currentIndex = index;
+    },
+    startTouch(event) {
+      this.startX = event.touches[0].clientX;
+    },
+    moveTouch(event) {
+      this.endX = event.touches[0].clientX;
+    },
+    endTouch() {
+      if (this.startX - this.endX > 50) {
+        this.nextSlide(); // Swipe left
+      } else if (this.endX - this.startX > 50) {
+        this.prevSlide(); // Swipe right
+      }
     },
   },
   mounted() {

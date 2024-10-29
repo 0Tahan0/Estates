@@ -6,11 +6,14 @@
     @dragover.prevent
     :style="{ borderRadius: $store.getters.Rounded }"
     :class="activated"
-    class="transition dark:bg-dark bg-light duration-300 font-medium capitalize md:text-base text-sm border-dashed border-2 flex flex-col justify-around items-center border-gray-500 min-h-32 "
+    class="transition dark:bg-dark bg-light duration-300 font-medium capitalize md:text-base text-sm border-dashed border-2 flex flex-col justify-around items-center border-gray-500 min-h-32"
   >
     <Title class="">{{ title }}</Title>
 
-    <Button class="flex ring-1 dark:ring-gray-600 ring-gray-300 items-center gap-2" @click="this.$refs.uploader.click()">
+    <Button
+      class="flex ring-1 dark:ring-gray-600 ring-gray-300 items-center gap-2"
+      @click="this.$refs.uploader.click()"
+    >
       <p>{{ buttonText }}</p>
 
       <Icon icon="fa-solid fa-circle-arrow-up" class="h-7 rounded-full" />
@@ -68,17 +71,20 @@ export default {
     },
   },
   methods: {
-    setVal(e) {
+    async setVal(e) {
       this.isActive = false;
       const files = e?.dataTransfer?.files || this.$refs.uploader.files;
-      if (files.length > 0) {
-        for (let i = 0; i < files.length; i++) {
+      const readerFunc = async (file) => {
+        return new Promise((resolve) => {
           const reader = new FileReader();
-          reader.readAsDataURL(files[i]);
-          reader.addEventListener("load", () => this.files.push(reader.result));
-        }
-        this.$emit("selected", this.files);
+          reader.onload = () => resolve(reader.result);
+          reader.readAsDataURL(file);
+        });
+      };
+      for (let i = 0; i < files?.length; i++) {
+        this.files.push(await readerFunc(files[i]));
       }
+      this.$emit("selected", this.files);
     },
 
     toggleActive(state) {

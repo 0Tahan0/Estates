@@ -1,14 +1,12 @@
 <template>
   <Container>
-    <div >
-      <Container class="p-5 " >
-        
-          <Title size="xl" :title="$t('ui.GenerateEstate')" />
+    <div>
+      <Container class="p-5">
+        <Title size="xl" :title="$t('ui.GenerateEstate')" />
       </Container>
 
       <div class="p-2">
-        
-        <Container class="space-y-5 ">
+        <Container class="space-y-5">
           <div class="grid md:grid-cols-2 gap-5">
             <div>
               <Title
@@ -90,7 +88,7 @@
               <Field v-model="estate.estateType_en" />
             </div>
           </div>
-          <div class=" flex flex-col gap-5">
+          <div class="flex flex-col gap-5">
             <Title :title="$t('ui.Location')" />
             <div class="flex gap-2">
               <Button
@@ -111,7 +109,7 @@
               /></Button>
             </div>
             <Map
-            class=" h-96 md:h-[30rem]"
+              class="h-96 md:h-[30rem]"
               v-show="currentComponent === 'Map'"
               :multiPoints="false"
               :zoom="10"
@@ -120,10 +118,7 @@
               @add="handelAddLocation"
               @delete="handelDeleteLocation"
             />
-            <div
-              v-show="currentComponent === 'Manual'"
-              class="space-y-5"
-            >
+            <div v-show="currentComponent === 'Manual'" class="space-y-5">
               <div>
                 <Title
                   size="sm"
@@ -143,28 +138,28 @@
         </Container>
       </div>
 
-      <div class=" p-2">
-        <Button @click="generateEstate" class="w-full   flex justify-center items-center gap-2">
-        <p>{{$t("ui.GenerateEstate")}}</p>
-        <Icon icon="fa-solid fa-square-plus" size="lg" />
-      </Button>
+      <div class="p-2">
+        <Button
+          @click="generateEstate"
+          class="w-full flex justify-center items-center gap-2"
+        >
+          <p>{{ $t("ui.GenerateEstate") }}</p>
+          <Icon icon="fa-solid fa-square-plus" size="lg" />
+        </Button>
       </div>
     </div>
   </Container>
 </template>
 
 <script>
-
 export default {
-  inject:['estate'],
+  inject: ["estate"],
   data() {
-
     return {
       currentComponent: "Map",
     };
   },
   methods: {
-
     handelAddLocation(loca) {
       console.log(loca);
       this.estate.locationName_ar = loca.locationName.place_name_ar;
@@ -175,11 +170,11 @@ export default {
     },
     handelDeleteLocation(loca) {
       console.log(loca);
-      this.estate.locationName_ar = loca.locationName.place_name_ar;
-      this.estate.locationName_en = loca.locationName.place_name_en;
+      this.estate.locationName_ar = "";
+      this.estate.locationName_en = "";
       this.estate.location.x = null;
       this.estate.location.y = null;
-      this.estate.location.id = loca.id;
+      this.estate.location.id = null;
     },
     generateEstate() {
       // Logic to generate the estate
@@ -188,4 +183,3 @@ export default {
   },
 };
 </script>
-

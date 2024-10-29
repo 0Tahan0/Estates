@@ -12,8 +12,8 @@
     --dark-blue: #275d9e;
     --dark: #252525;
     --darkEl: #353535;
-    --light: #fff;
-    --lightEl: #f8f8f8;
+    --light: #f1f1f1;
+    --lightEl: #e4e4e4;
     --lightBt: #eee;
 }
 html[data-mode="dark"] {

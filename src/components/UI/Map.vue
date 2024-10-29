@@ -62,6 +62,7 @@ export default {
       deleteMode: false,
       apiKey: "I5NjhOCpMfCd6OpgxXPa",
       tempPointInfo: null,
+      EnaledMultiPoints: this.$props.multiPoints,
     };
   },
   methods: {
@@ -106,6 +107,7 @@ export default {
     handelPointClick(e, point, callback) {
       if (this.deleteMode) {
         callback();
+        this.EnaledMultiPoints = true;
         this.$emit("delete", null);
       } else {
         this.$emit("click", point);
@@ -114,7 +116,8 @@ export default {
 
     async handelPointSet(e, point) {
       if (this.pointingMode) {
-        if (!this.multiPoints && this.tempPointInfo) return;
+        if (!this.EnaledMultiPoints && this.tempPointInfo) return;
+        this.EnaledMultiPoints = this.multiPoints
         const location = e.lngLat;
         await this.createPoint({ location: [location.lng, location.lat] });
         this.$emit("add", this.tempPointInfo);
@@ -130,15 +133,14 @@ export default {
       marker._element.className += ` cursor-pointer  z-20`;
       marker._element.setAttribute("tooltip", locationName.place_name_en);
 
-      marker._element.addEventListener("click", (e) =>this.handelPointClick(e, point, () => marker.remove())); /*prettier-ignore*/
-      marker.setLngLat(point.location);
-      marker.addTo(this.map);
-      
       this.tempPointInfo = {
         point: point,
         locationName: locationName,
         id: point.id || new Date().getTime(),
       };
+      marker._element.addEventListener("click", (e) =>this.handelPointClick(e, point, () => marker.remove())); /*prettier-ignore*/
+      marker.setLngLat(point.location);
+      marker.addTo(this.map);
     },
   },
   async mounted() {

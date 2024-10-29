@@ -1,33 +1,6 @@
 <template>
   <div>
-    <WrapperEl class="dark:bg-mainColor bg-mainColor text-white">
-      <Title
-        size="lg"
-        :title="$t('ui.AboutTheProject')"
-        align="center"
-        class="mt-5 "
-      />
-      <div
-        class="grid grid-cols-2 sm:grid-cols-4 p-2 gap-2 shadow-md shadow-black/20"
-      >
-        <div class="grid place-items-center gap-2">
-          <Icon icon="fa-solid fa-calendar-days " size="xl" />
-          <Title title="date" size="sm" />
-        </div>
-        <div class="grid place-items-center gap-2">
-          <Icon icon="fa-solid fa-money-bill " size="xl" />
-          <Title title="price" size="sm" />
-        </div>
-        <div class="grid place-items-center gap-2">
-          <Icon icon="fa-solid fa-location-dot " size="xl" />
-          <Title title="location" size="sm" />
-        </div>
-        <div class="grid place-items-center gap-2">
-          <Icon icon="fa-solid fa-building " size="xl" />
-          <Title title="properties count" size="sm" />
-        </div>
-      </div>
-    </WrapperEl>
+
     <div class="space-y-4">
       <Wrapper>
         <Title
@@ -56,7 +29,7 @@
         <WrapperEl class="p-2 mt-2">
           <div class="flex items-center gap-2">
             <Icon icon="fa-solid fa-list" />
-            <Title size="sm" :title="$t('ui.properties')" />
+            <Title size="sm" :title="$t('ui.Properties')" />
           </div>
 
           <ul class="select-none space-y-2 list-disc ms-5">

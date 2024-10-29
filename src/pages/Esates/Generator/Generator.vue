@@ -55,7 +55,7 @@ export default {
         locationName_ar: "",
         locationName_en: "",
         isSpecial: false,
-        attachments: [],
+        attachments: new Set([]),
         situation: 0,
         estateType_ar: null,
         estateType_en: null,

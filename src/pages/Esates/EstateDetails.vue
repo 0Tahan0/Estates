@@ -5,6 +5,36 @@
         <Gallery :images="images" :elementsCount="10" class="h-[90dvh] mt-10" />
       </WrapperEl>
     </Container>
+    <div class="dark:bg-mainColor bg-mainColor text-white">
+      <Container>
+        <Title
+          size="lg"
+          :title="$t('ui.AboutTheProject')"
+          align="center"
+          class="mt-5"
+        />
+        <div
+          class="grid grid-cols-2 sm:grid-cols-4 p-2 gap-2 "
+        >
+          <div class="grid place-items-center gap-2">
+            <Icon icon="fa-solid fa-calendar-days " size="xl" />
+            <Title title="date" size="sm" />
+          </div>
+          <div class="grid place-items-center gap-2">
+            <Icon icon="fa-solid fa-money-bill " size="xl" />
+            <Title title="price" size="sm" />
+          </div>
+          <div class="grid place-items-center gap-2">
+            <Icon icon="fa-solid fa-location-dot " size="xl" />
+            <Title title="location" size="sm" />
+          </div>
+          <div class="grid place-items-center gap-2">
+            <Icon icon="fa-solid fa-building " size="xl" />
+            <Title title="properties count" size="sm" />
+          </div>
+        </div>
+      </Container>
+    </div>
     <Container class="grid grid-cols-12 md:h-[90dvh] overflow-auto gap-2">
       <div class="md:overflow-auto col-span-12 md:col-span-8 lg:col-span-9">
         <!-- <Wrapper class="dark:border-stone-600 border">

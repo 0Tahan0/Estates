@@ -2,8 +2,19 @@
   <NavBar />
   <PageSplitter>
     <RouterView />
-    <EstateMap v-if="showEstateSection" />
-    <EstateCardsGroup :estates="estates" v-if="showEstateSection" />
+    <PageSplitter v-if="showEstateSection">
+      <EstateMap />
+      <Container>
+        <Button
+          @click="$router.push({ name: 'Generator' })"
+          class="flex items-center gap-2 border"
+        >
+          <p>{{ $t("ui.GenerateEstate") }}</p>
+          <Icon icon="fa-solid fa-square-plus" />
+        </Button>
+      </Container>
+      <EstateCardsGroup :estates="estates" />
+    </PageSplitter>
     <Footer />
   </PageSplitter>
 </template>

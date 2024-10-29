@@ -7,6 +7,7 @@
     </Container>
     <InfoSection />
     <NewestProjects />
+    <BlogsInfo />
     <Footer />
   </PageSplitter>
 </template>
@@ -14,6 +15,7 @@
 import OurProject from "./OuerProjects.vue";
 import InfoSection from "./InfoSection.vue";
 import NewestProjects from "./NewestProjects.vue";
+import BlogsInfo from "./BlogsInfo.vue";
 import slide from "../../assets/images/slide.jpg";
 import slide2 from "../../assets/images/slide2.jpg";
 import slide3 from "../../assets/images/slide3.jpg";
@@ -22,6 +24,7 @@ export default {
     OurProject,
     InfoSection,
     NewestProjects,
+    BlogsInfo,
   },
   computed: {
     slides() {

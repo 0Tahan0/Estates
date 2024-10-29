@@ -3,14 +3,13 @@
     <Container class="z-50">
       <!-- Modal Overlay -->
       <div
-        class="fixed h-dvh w-screen top-0 left-0 bg-black bg-opacity-50 "
-        :class="!full && 'flex items-center justify-center'"
+        class="fixed h-dvh w-screen top-0 left-0 bg-black bg-opacity-50 flex items-center justify-center"
+        
       >
-        <Wrapper class="relative  overflow-auto flex flex-col transition-all" :style="customFullWindow">
+        <Wrapper class="relative  overflow-auto flex flex-col transition-all max-w-screen-lg w-1/3 " >
           <!-- Close Button -->
           <div class="flex items-center p-1 ">
             <IconBtn icon="fa-solid fa-close" @click="closeModal" />
-            <IconBtn icon="fa-solid fa-expand" @click="toggleExpandWindow" />
           </div>
 
           <!-- Modal Content Slot -->
@@ -31,21 +30,15 @@ export default {
       type: Boolean,
       default: false,
     },
-    fullWindow: {
-      type: Boolean,
-      default: false,
-    },
+
   },
   data() {
     return {
-      full: this.$props.fullWindow,
+
     };
   },
   computed: {
-    customFullWindow() {
-      if (this.full)
-        return "min-height:100% !important; min-width:100% !important; z-index:99999 ;";
-    },
+
   },
   methods: {
     closeModal() {
