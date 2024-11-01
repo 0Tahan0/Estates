@@ -1,3 +1,4 @@
+import { EnglishBlogs } from "./Blogs";
 export default {
   fields: {
     Email: "email",
@@ -70,6 +71,13 @@ export default {
     Manual: "manual",
     Attachments: "attachments",
     Properties: "properties",
+    InsuranceServices: "insurance services",
+    TurkishResidence: "turkish residence",
+    WorkPermit: "work permit",
+    ObtainingCitizenship: "obtaining citizenship",
+    CompaniesFormation: "companies formation",
+    StudentServices: "student services",
+    RealEstateService: "real estate service",
   },
   uiText: {
     AboutUsText:
@@ -99,4 +107,5 @@ export default {
     OurNewProjectsText:
       "With more than 100 properties, Masarat has multiple and distinctive options in Türkiye.",
   },
+  Blogs: EnglishBlogs(),
 };

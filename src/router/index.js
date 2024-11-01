@@ -7,7 +7,7 @@ const routes = [
     name: "Home",
   },
   {
-    path: "/about",
+    path: "/About",
     component: () => import("../pages/AboutView.vue"),
     name: "About",
   },
@@ -15,6 +15,43 @@ const routes = [
     path: "/Blogs",
     component: () => import("../pages/Blogs/BlogsView.vue"),
     name: "Blogs",
+    children: [
+      {
+        path: "InsuranceServices",
+        name: "InsuranceServices",
+        // alias: "خدمات التأمين",
+      },
+      {
+        path: "ObtainingCitizenship",
+        name: "ObtainingCitizenship",
+        // alias: "الحصول على الجنسية",
+      },
+      {
+        path: "TurkishResidence",
+        name: "TurkishResidence",
+        // alias: "الإقامة التركية",
+      },
+      {
+        path: "WorkPermit",
+        name: "WorkPermit",
+        // alias: "إقامة العمل",
+      },
+      {
+        path: "CompaniesFormation",
+        name: "CompaniesFormation",
+        // alias: "تأسيس الشركات",
+      },
+      {
+        path: "StudentServices",
+        name: "StudentServices",
+        // alias: "خدمات طلابية",
+      },
+      {
+        path: "RealEstateService",
+        name: "RealEstateService",
+        // alias: "خدمة العقارات",
+      },
+    ],
   },
   {
     path: "/Estates",

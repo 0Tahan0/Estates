@@ -126,11 +126,11 @@ export default {
           page: this.$t("ui.Home"),
         },
         {
-          path: "/about",
+          path: "/About",
           page: this.$t("ui.AboutUs"),
         },
         {
-          path: "/blogs",
+          path: "/Blogs",
           page: this.$t("ui.Blogs"),
         },
         {

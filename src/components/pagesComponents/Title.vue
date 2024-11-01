@@ -1,7 +1,7 @@
 <template>
-  <div class="capitalize select-none" :style="{ textAlign: align }">
+  <div class="capitalize select-none text-dark dark:text-white " :style="{ textAlign: align }">
     <p
-      class="text-dark dark:text-white text-base md:lg lg:text-2xl font-bold"
+      class="text-base md:lg lg:text-2xl font-bold"
     >
       <span :style="`font-size : ${customizfontSize}`">
         <slot>{{ title }}</slot>
@@ -9,7 +9,7 @@
     </p>
     <p
       v-if="smallTitle"
-      class="text-xs md:text-sm text-gray-500 dark:text-gray-200"
+      class="text-xs mt-2 md:text-sm text-gray-700 dark:text-gray-300"
     >
       {{ smallTitle }}
     </p>
