@@ -1,6 +1,6 @@
 <template>
   <Wrapper
-    :class="`w-full top-0 left-0 sticky z-50 backdrop-blur-md ${openNav && 'h-dvh overflow-hidden  '} ${getNaveShape}`"
+    :class="`w-full top-0 left-0 sticky z-50 backdrop-blur-md shadow-sm ${openNav && 'h-dvh overflow-hidden  '} ${getNaveShape}`"
   >
     <div class="relative transition-all duration-300 flex flex-col h-full ">
       <Container class="flex items-center py-1">

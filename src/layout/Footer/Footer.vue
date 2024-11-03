@@ -1,5 +1,5 @@
 <template>
-  <Wrapper class="space-y-7">
+  <div>
     <section class="bg-mainColor">
       <Container
         class="grid md:grid-cols-2 items-center gap-5 font-bold text-white py-10"
@@ -18,7 +18,7 @@
         </div>
       </Container>
     </section>
-    <section>
+    <WrapperEl>
       <Container
         class="grid py-5 gap-10 md:gap-5 text-center md:text-start md:grid-cols-3"
       >
@@ -90,6 +90,6 @@
           </Article>
         </div>
       </Container>
-    </section>
-  </Wrapper>
+    </WrapperEl>
+  </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div
     ref="parentElement"
-    class="outline-none dark:bg-dark bg-light transition-all ring-1 ring-gray-500 shadow-sm justify-between flex p-0.5 text-slate-600 dark:text-gray-300 relative"
+    class="outline-none dark:bg-dark bg-light transition-all ring-1 ring-gray-500 shadow-sm justify-between flex p-0.5 text-slate-600 dark:text-gray-300 relative "
     :class="customizeFocusedStyle"
     :style="{ borderRadius: Rounded }"
     @click="handleDivClick()"

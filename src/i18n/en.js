@@ -73,10 +73,6 @@ export default {
     Properties: "properties",
     InsuranceServices: "insurance services",
     TurkishResidence: "turkish residence",
-    WorkPermit: "work permit",
-    ObtainingCitizenship: "obtaining citizenship",
-    CompaniesFormation: "companies formation",
-    StudentServices: "student services",
     RealEstateService: "real estate service",
   },
   uiText: {
@@ -104,8 +100,7 @@ export default {
       "Navigating a real estate transaction requires skilled professionalism and exceptional customer care. Our sales staff is carefully selected from hundreds of applicants and extensively trained, they are the best of the best. Each salesperson has a specific role and there is always someone available – 7 days a week – to ensure the purchase process goes smoothly.",
     OurProjectsText:
       "You can find multiple categories of places and cities for our properties.",
-    OurNewProjectsText:
-      "With more than 100 properties, Masarat has multiple and distinctive options in Türkiye.",
+    
   },
   Blogs: EnglishBlogs(),
 };

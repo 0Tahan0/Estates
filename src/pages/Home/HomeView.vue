@@ -1,15 +1,19 @@
 <template>
-  <NavBar />
-  <PageSplitter>
-    <Carousel :slides="slides" class="h-screen" autoPlay motion />
-    <Container>
-      <OurProject />
-    </Container>
-    <InfoSection />
-    <NewestProjects />
-    <BlogsInfo />
-    <Footer />
-  </PageSplitter>
+  <div>
+    <NavBar />
+    <PageSplitter>
+      <Carousel :slides="slides" class="h-screen" autoPlay motion />
+      <Container>
+        <OurProject />
+      </Container>
+      <InfoSection />
+      <NewestProjects />
+    </PageSplitter>
+    <div class="mt-10">
+      <BlogsInfo />
+      <Footer />
+    </div>
+  </div>
 </template>
 <script>
 import OurProject from "./OuerProjects.vue";

@@ -1,7 +1,7 @@
 <template>
   <div
     @click="$emit('click', $event)"
-    class="dark:bg-darkEl bg-lightEl dark:text-white text-dark shadow-sm shadow-black/20"
+    class="dark:bg-darkEl bg-lightEl dark:text-white text-dark "
     :style="{ borderRadius: Rounded }"
   >
   

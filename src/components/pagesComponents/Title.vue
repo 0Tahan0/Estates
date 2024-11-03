@@ -1,15 +1,16 @@
 <template>
-  <div class="capitalize select-none text-dark dark:text-white " :style="{ textAlign: align }">
-    <p
-      class="text-base md:lg lg:text-2xl font-bold"
-    >
+  <div
+    class="capitalize select-none text-dark dark:text-white"
+    :style="{ textAlign: align }"
+  >
+    <p class="text-base md:lg lg:text-2xl font-bold" :class="titleClass">
       <span :style="`font-size : ${customizfontSize}`">
         <slot>{{ title }}</slot>
       </span>
     </p>
     <p
       v-if="smallTitle"
-      class="text-xs mt-2 md:text-sm text-gray-700 dark:text-gray-300"
+      class="text-xs font-medium mt-2 md:text-sm text-gray-700 dark:text-gray-300"
     >
       {{ smallTitle }}
     </p>
@@ -31,6 +32,10 @@ export default {
     size: {
       type: String,
       default: "md",
+    },
+    titleClass: {
+      type: String,
+      defailt: "",
     },
   },
   computed: {

@@ -5,7 +5,7 @@ const darkModeKey = "MasaratDarkMode";
 const langKey = "MasaratLang";
 const store = createStore({
   state: {
-    Rounded: "0px",
+    Rounded: "5px",
     root: document.querySelector(":root"),
     isDarkMode: JSON.parse(localStorage.getItem(darkModeKey)) || false,
     lang:

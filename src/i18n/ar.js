@@ -73,10 +73,9 @@ export default {
     Properties: "المميزات",
     InsuranceServices: "خدمات التأمين",
     TurkishResidence: "الإقامة التركية",
-    WorkPermit: "إقامة العمل",
-    ObtainingCitizenship: "الحصول على الجنسية",
-    CompaniesFormation: "تأسيس الشركات",
-    StudentServices: "خدمات طلابية",
+    
+    
+    
     RealEstateService: "خدمة العقارات",
   },
   uiText: {
@@ -105,8 +104,7 @@ export default {
       "يمكنكم إيجاد فئات متعددة من الأماكن و المدن الخاصة بعقاراتنا",
     OurNewProjectsText:
       "مع أكثر من 100 عقار ، تمتلك Masarat خيارات متعددة ومميزة في تركيا",
-    ObtainingCitizenship_Text:
-      "الحصول على الجنسية التركية يعتبر ميزة يطلبها الكثير من الوافدين إلى تركيا، يدفعهم إلى ذلك الاستقرار الاجتماعي والسياسي في البلاد، والنهضة الاقتصادية وفرص الاستثمار الواعدة فيها، وسنتكلم هنا بالتفصيل عن أهم المعلومات التي تهم الباحثين عن الجنسية التركية.",
+    
   },
   Blogs: ArabicBlogs(),
 };
