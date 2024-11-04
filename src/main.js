@@ -81,9 +81,6 @@ app.component("EstateCard", EstateCard);
 import ArticleCard from "./components/ArticleCard.vue";
 app.component("ArticleCard", ArticleCard);
 
-import BlogCard from "./components/BlogCard.vue";
-app.component("BlogCard", BlogCard);
-
 app.component("Icon", FontAwesomeIcon);
 app.use(router);
 app.use(store);

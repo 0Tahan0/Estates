@@ -1,11 +1,18 @@
 <template>
   <div ref="contextmenu_box">
     <div class="relative">
+      <div @click="showMenu = !showMenu">
+
+      <slot name="button"
+      >
       <IconBtn
         icon="fa-solid fa-ellipsis"
         class="dark:bg-black bg-white bg-opacity-40 dark:bg-opacity-40"
-        @click="showMenu = !showMenu"
+        
       />
+      </slot>
+      </div>
+
       <Transition>
         <WrapperEl
           v-if="showMenu"

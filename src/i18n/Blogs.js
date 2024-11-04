@@ -1171,36 +1171,182 @@ const blogs = [
       },
     ],
   },
-  // 
-  // {
-  //   name: "",
-  //   title_en: "",
-  //   title_ar: "",
-  //   description_en: "",
-  //   description_ar: "",
-  //   properties: [
-  //     {
-  //       title_en: "",
-  //       title_ar: "",
-  //       description_en: "",
-  //       description_ar: "",
-  //       items: [
-  //         {
-  //           title_en: "",
-  //           title_ar: "",
-  //           description_en: "",
-  //           description_ar: "",
-  //           values: [
-  //             {
-  //               value_en: "",
-  //               value_ar: "",
-  //             },
-  //           ],
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
+  // Real estate title tax - ضريبة الطابو العقاري
+  {
+    id: "RealEstateTitleTax",
+    title_en: "Real estate title tax",
+    title_ar: "ضريبة الطابو العقاري",
+    name_en: "Real estate title tax",
+    name_ar: "ضريبة الطابو العقاري",
+    description_en:
+      "What is the real estate title tax 📑⁉️ This tax is considered one of the real estate taxes that are paid when purchasing real estate in Turkey, as it is due when the ownership of the property is changed from one person to another and is paid when registering the title deed, as it is equivalent to 4% of the declared and agreed upon value between the seller and the buyer, paid by both parties equally, which is what the law stipulates, but in most cases the buyer bears the responsibility of paying the full value of this tax, so it is necessary to notify the buyer of the need to know this matter so that it is guaranteed for negotiations between him and the seller.",
+    description_ar:
+      "ما هي ضريبة الطابو العقاري 📑⁉️ تعتبر هذه الضريبة من الضرائب العقارية التي يتم دفعها عند شراء العقارات في تركيا حيث تكون مستحقة عند تغيير ملكية العقار من شخص لآخر و تدفع عند تسجيل سندالملكية حيث تعادل 4% من القيمة المعلنة و المتفق عليها بين البائع و المشتري يدفعها كلا الطرفان بالتساوي ذاك ما ينص عليه القانون ولكن في الغالب يتحمل المشتري مسؤولية دفع كامل قيمة هذه الضريبة لذا وجب التنويه للمشتري بضرورة معرفة هذا الأمر حتى يضمنه للمفاوضات بينه وبين البائع .",
+  },
+  // Annual property tax - الضريبة العقارية السنوية
+  {
+    id: "AnnualPropertyTax",
+    title_en: "Annual property tax",
+    title_ar: "الضريبة العقارية السنوية",
+    name_en: "Annual property tax",
+    name_ar: "الضريبة العقارية السنوية",
+    description_en:
+      "What is the annual real estate tax ⁉️ Since you have obtained the title deed for the property you purchased and it is in your name 📑, you have become obligated to pay an annual tax imposed by the Turkish state and you pay this tax to the local municipality in the amount of 0.003 of the value of the property. This is in exchange for the services provided by the municipality to the residents, as this tax is imposed on everyone, whether citizens or foreigners, as there is usually no difference in the taxes imposed on real estate in Türkiye that distinguishes between foreigners and citizens.",
+    description_ar:
+      "ما هي الضريبة العقارية السنوية ⁉️ منذ حصولك على طابو الملكية للعقار الذي قمت بشرائه وأصبح بإسمك 📑 فإنك أصبحت ملتزماً بدفع ضريبة سنوية تفرضها الدولة التركية و تدفع هذه الضريبة للبلدية المحلية بقيمة 0.003 من قيمة العقار. و ذلك مقابل ما تقدمه البلدية من خدمات للسكان إذ تُفرض هذه الضريبة على الجميع سواء مواطنين أو أجانب فليس هناك فرق غالباً في الضرائب المفروضة على العقارات في تركيا تميز بين الأجنبي و المواطن.",
+  },
+  // What is real estate profits tax? - ماهي ضريبة الأرباح العقارية
+  {
+    id: "WhatIsRealEstateProfitsTax",
+    title_en: "What is real estate profits tax?",
+    title_ar: "ماهي ضريبة الأرباح العقارية",
+    name_en: "What is real estate profits tax?",
+    name_ar: "ماهي ضريبة الأرباح العقارية",
+    description_en:
+      "What is the real estate profits tax? If the buyer decides to sell the property before 5 years have passed since owning it, it falls within the scope of that tax that is imposed on the profit percentage, as the value of the capital gain is calculated, i.e. the increase over the original amount that was purchased, and the payment percentage is determined based on annual tax brackets determined by the state for the profit amounts at varying rates that increase and decrease according to the value between 15%_35%, and based on that, the payment is made to the state, and the state does not specify who pays those profits, so an agreement must be reached between the seller and the buyer when negotiating the price of the property.",
+    description_ar:
+      "ماهي ضريبة الأرباح العقارية ⁉️ إذا قرر المشتري بيع العقار قبل مرور 5 سنوات على تملكه فإنه يندرج ضمن دائرة تلك الضريبة التي تفرض على نسبة الربح حيث يتم احتساب قيمة ربح رأس المال أي الزيادة على المبلغ الأصلي الذي تم شرائه و يتم تحديد نسبة الدفع بناءً على شرائح ضريبية سنوية يتم تحديدها من قبل الدولة للمبالغ الربحية بنسب متفاوتة تزداد و تنقص حسب القيمة ما بين 15%_35% و بناء على ذلك يتم الدفع للدولة و لا تحدد الدولة من يقوم بدفع تلك الأرباح لذلك يجب ان يتم الاتفاق بين البائع والمشتري عند المفاوضات على سعر العقار .",
+  },
+  // How do foreigners inherit in Türkiye?! - كيف يرث الأجانب في تركيا؟!
+  {
+    id: "HowDoForeignersInheritInTürkiye",
+    title_en: "How do foreigners inherit in Türkiye?!",
+    title_ar: "كيف يرث الأجانب في تركيا؟!",
+    name_en: "How do foreigners inherit in Türkiye?!",
+    name_ar: "كيف يرث الأجانب في تركيا؟!",
+    description_en: "",
+    description_ar: "",
+    properties: [
+      {
+        title_en: "There are three cases of inheritance in Türkiye.",
+        title_ar: "يوجد ثلاث حالات لموضوع الإرث في تركيا",
+        description_en: "",
+        description_ar: "",
+        items: [
+          {
+            title_en:
+              "If the deceased's country is within the Hague Convention.",
+            title_ar: " إذا كانت دولة المتوفى ضمن اتفاقية لاهاي.",
+            description_en: "",
+            description_ar: "",
+            values: [
+              {
+                value_en:
+                  "If the deceased foreigner holds the nationality of one of the countries that signed the Hague Convention, the heirs have the right to bring the inheritance notification documents and the family statement. After they are translated into Turkish and notarized in Turkey, they are approved in the Turkish courts and the inheritance is distributed according to Turkish law or the law of the deceased’s home country based on the heirs’ request.",
+                value_ar:
+                  "إذا كان المتوفى الأجنبي يحمل جنسية إحدى الدول الموقعة على اتفاقية لاهاي، فإنّه يحق للورثة أن يحضر وثائق إعلام الوراثة والبيان العائلي وبعد ترجمتها للتركية وتصديقها عند الكاتب بالعدل “النوتر” في تركيا يتم اعتمادها في المحاكم التركية وتوزيع الميراث وفق القانون التركي أو قانون البلد الأم للمتوفى بناءً على طلب الورثة.",
+              },
+            ],
+          },
+          {
+            title_en:
+              "If there is a reciprocity agreement between Türkiye and the deceased's country.",
+            title_ar: "إذا كان بين تركيا ودولة المتوفى اتفاقية معاملة بالمثل.",
+            description_en: "",
+            description_ar: "",
+
+            values: [
+              {
+                value_en:
+                  "The court looks at the treatment received by Turks in the deceased’s country, and accordingly, if there is a principle of reciprocity between the two countries, the inheritance notification documents and the family statement are brought from the foreign citizen’s home country, then translated and certified. The inheritance process is initiated in Türkiye in the competent courts.",
+                value_ar:
+                  "تنظر المحكمة إلى المعاملة التي يتلقاها الأتراك في بلد المتوفى، وبناءً عليه إن كان هناك مبدأ معاملة بالمثل بين البلدين يتم إحضار وثائق إعلام الوراثة والبيان العائلي من البلد الأم للمواطن الأجنبي ثم ترجمتها وتصديقها يتم البدء بمعاملة الميراث في تركيا في المحاكم المختصة.",
+              },
+            ],
+          },
+          {
+            title_en: "If the two previous options are not available",
+            title_ar: "في حال عدم وجود الخيارين السابقين",
+            description_en: "",
+            description_ar: "",
+            values: [
+              {
+                value_en:
+                  "In this case, the heirs need to file a lawsuit in the Turkish court to demand the issuance of an inheritance notification from Turkey. The court will verify the death announcement and determine those concerned with distributing the inheritance and those entitled to it by contacting the competent authorities in the deceased’s home country. After the issuance of the inheritance notification document from Turkey, the inheritance limitation process begins in the Turkish court normally.",
+                value_ar:
+                  "في هذه الحالة يحتاج الورثة إلى رفع دعوى في المحكمة التركية للمطالبة بإخراج إعلام وراثة من تركيا، وستتحقق المحكمة من إعلان الوفاة وتحديد المعنيين بتوزيع الميراث والمستحقين له عن طريق إجراء اتصال مع الجهات المختصة بذلك في البلد الأم للمتوفى بعد منح وثيقة إعلام الورثة من تركيا تبدأ معاملة حصر الإرث في المحكمة التركية بشكل طبيعي.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  // Türkiye: Real estate sales up 27 percent - تركيا .. ارتفاع مبيعات العقارات بنسبة 27 بالمئة
+  {
+    id: "TürkiyeRealEstateSalesUp27Percent",
+    title_en: "Türkiye: Real estate sales up 27 percent",
+    title_ar: "تركيا .. ارتفاع مبيعات العقارات بنسبة 27 بالمئة",
+    name_en: "Türkiye: Real estate sales up 27 percent",
+    name_ar: "تركيا .. ارتفاع مبيعات العقارات بنسبة 27 بالمئة",
+    description_en: `Real estate sales in Turkey increased by 27 percent during the first ten months of this year, compared to the same period last year.
+
+According to data from the Turkish Statistical Institute, the period between January and October 2020 witnessed the sale of 1,280,852 properties.
+
+Real estate owners in the country expect the total number of properties sold to reach 1.5 million by the end of this year.
+
+In an interview with Anadolu Agency, Altan Elmas, Chairman of the Real Estate Developers and Investors Association (KONUTDER), pointed to the great demand for purchasing real estate in Turkey.
+
+He added that Istanbul topped the Turkish states that witnessed the largest percentage of real estate sales last October.
+
+In turn, Selman Ozgun, Chairman of the Board of Directors of the construction company “Hilman”, said that they expect to achieve record numbers in real estate sales, until the end of this year.
+
+In a related context, Abdul Qadir Aqush, Chairman of the Board of Directors of the Aqush Group, said that the record achieved so far in annual Turkish real estate sales is 1,409 thousand properties.
+
+He added that they expect this number to rise to 1.5 million properties by the end of 2020.`,
+    description_ar: `ارتفعت مبيعات العقارات في تركيا بنسبة 27 بالمائة خلال الأشهر العشرة الأولى من العام الجاري ، مقارنة بالفترة نفسها من العام الماضي.
+
+وبحسب معطيات هيئة الإحصاء التركية ، شهدت الفترة بين كانون الثاني (يناير) وتشرين الأول (أكتوبر) 2020 بيع مليون و 280 ألف و 852 عقارًا.
+
+ويتوقع أصحاب قطاع العقارات في الدولة أن يصل إجمالي العقارات المباعة إلى 1.5 مليون بنهاية العام الجاري.
+في حديث لوكالة الأناضول ، أشار ألتان إلماس ، رئيس جمعية المطورين العقاريين والمستثمرين (KONUTDER) ، إلى الطلب الكبير على شراء العقارات في تركيا.
+
+وأضاف أن اسطنبول تصدرت الولايات التركية التي شهدت أكبر نسبة من مبيعات العقارات في أكتوبر الماضي.
+
+بدوره ، قال سلمان أوزغون ، رئيس مجلس إدارة شركة الإنشاءات “هيلمان” ، إنهم يتوقعون تحقيق أرقام قياسية في مبيعات العقارات ، حتى نهاية العام الجاري.
+
+في سياق متواصل ، قال عبد القادر أقوش رئيس مجلس إدارة مجموعة أجوش ، إن الرقم القياسي الذي تحقق حتى الآن في مبيعات العقارات التركية السنوية هو مليون و 409 ألف عقار.
+
+وأضاف أنهم يتوقعون أن يرتفع هذا العدد إلى 1.5 مليون عقار بنهاية 2020.`,
+  },
+  // Top Nationalities Buying Foreign Real Estate in Türkiye in November 2020 - الجنسيات الأكثر شراءً للعقارات الأجنبية في تركيا خلال شهر نوفمبر 2020
+  {
+    id: "TopNationalitiesBuyingForeignRealEstateInTürkiyeInNovember2020",
+    title_en:
+      "Top Nationalities Buying Foreign Real Estate in Türkiye in November 2020",
+    title_ar:
+      "الجنسيات الأكثر شراءً للعقارات الأجنبية في تركيا خلال شهر نوفمبر 2020",
+    name_en:
+      "Top Nationalities Buying Foreign Real Estate in Türkiye in November 2020",
+    name_ar:
+      "الجنسيات الأكثر شراءً للعقارات الأجنبية في تركيا خلال شهر نوفمبر 2020",
+    description_en: `
+    Real estate sales to foreigners in Turkey have seen continuous growth throughout the last four months of this year, with a total of around twenty thousand properties.
+
+As of August 2020, real estate sales to foreigners have seen continuous growth, recording a record of 4,962 properties until last November, achieving a growth of 24.4 compared to the same month last year.
+
+During the period between August and November, 19,382 properties were sold to foreigners, compared to 16.41 properties in the same period last year, an increase of 21 percent.
+Istanbul retained the first place in sales to foreigners with 2,443 properties, in November, an increase of 30 percent compared to the same month in 2019.
+
+The total number of properties sold to foreigners in Istanbul reached 16,867 during the first 11 months of 2020.
+
+Antalya came in second place with 6,946 properties, followed by Ankara in third place with 2,437 properties.
+
+As for the nationalities of the most foreign real estate buyers in Turkey during November 2020, Iraqis topped the list with 876 properties, followed by Iranians with 860, and Russians with 434 properties.
+    `,
+    description_ar: `شهدت مبيعات العقارات للأجانب في تركيا نموًا مستمرًا طوال الأشهر الأربعة الأخيرة من هذا العام ، بإجمالي حوالي عشرين ألف عقار.
+
+اعتبارًا من أغسطس 2020 ، شهدت مبيعات العقارات للأجانب نموًا مستمرًا ، حيث سجلت حتى نوفمبر الماضي رقمًا قياسيًا بلغ 4962 عقارًا ، محققة بذلك نموًا قدره 24.4 مقارنة بنفس الشهر من العام الماضي.
+
+خلال الفترة بين أغسطس ونوفمبر ، تم بيع 19382 عقارًا للأجانب ، مقارنة بـ 16.41 عقارًا في نفس الفترة من العام الماضي ، بزيادة قدرها 21 في المائة.
+احتفظت اسطنبول بالمركز الأول في المبيعات للأجانب بـ 2443 عقارًا ، في نوفمبر ، بزيادة قدرها 30 بالمائة مقارنة بالشهر نفسه من عام 2019.
+
+بلغ إجمالي العقارات المباعة للأجانب في اسطنبول 16،867 خلال أول 11 شهرًا من عام 2020.
+
+وجاءت أنطاليا في المرتبة الثانية بعدد 6946 عقارًا ، ثم أنقرة في المركز الثالث بـ 2437 عقارًا.
+
+وفيما يتعلق بجنسيات أكثر مشتري العقارات الأجانب في تركيا خلال شهر تشرين الثاني (نوفمبر) 2020 ، تصدّر العراقيون القائمة بـ 876 عقارًا ، يليهم الإيرانيون بـ 860 ، والروس بـ 434 عقارًا.`,
+  },
 ];
 
 function getArabicBlogs() {
@@ -1265,8 +1411,14 @@ function getEnglishBlogs() {
     return acc;
   }, {});
 }
+function blogsIds(){
+
+return blogs.map((item)=> item.id)
+
+}
 export { getArabicBlogs as ArabicBlogs };
 export { getEnglishBlogs as EnglishBlogs };
+export { blogsIds as blogs };
 
 /*
 

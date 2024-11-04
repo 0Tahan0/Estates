@@ -74,6 +74,7 @@ export default {
     InsuranceServices: "insurance services",
     TurkishResidence: "turkish residence",
     RealEstateService: "real estate service",
+    ShowTheList: "show the list",
   },
   uiText: {
     AboutUsText:
@@ -100,7 +101,6 @@ export default {
       "Navigating a real estate transaction requires skilled professionalism and exceptional customer care. Our sales staff is carefully selected from hundreds of applicants and extensively trained, they are the best of the best. Each salesperson has a specific role and there is always someone available – 7 days a week – to ensure the purchase process goes smoothly.",
     OurProjectsText:
       "You can find multiple categories of places and cities for our properties.",
-    
   },
   Blogs: EnglishBlogs(),
 };

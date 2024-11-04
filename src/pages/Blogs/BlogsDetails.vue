@@ -7,7 +7,7 @@
         <Article>{{ item?.description }}</Article>
         <!-- </WrapperEl> -->
         <Wrapper>
-          <ul class=" ">
+          <ul class=" " :id="item.id">
             <li v-for="(prop, ind) in item?.properties" :key="ind">
               <div>
                 <Title
@@ -56,12 +56,14 @@
 </template>
 
 <script>
+
 export default {
   props: {
     item: {
       type: Object,
       default: {},
     },
+    data(){}
   },
 };
 </script>

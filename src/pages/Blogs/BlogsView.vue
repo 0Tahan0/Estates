@@ -1,19 +1,40 @@
 <template>
   <NavBar />
   <PageSplitter>
-    <Container>
-      <button
-        v-for="item in info"
-        :key="item.id"
-        @click="currentComponent = item.id"
-        class="ring-0 shadow-none p-2 pb-3"
-        :class="currentComponent === item.id ? 'dark:bg-darkEl bg-lightEl' : ''"
+    <Container class="mt-5">
+      <IconBtn
+        icon="fa-solid fa-arrow-up"
+        @click="handelScrollTop()"
+        class="rounded-full ring fixed bottom-0 left-0 translate-x-full -translate-y-full"
       >
-        {{ blog(item.id).name }}
-      </button>
-      <WrapperEl>
-        <!-- <BlogsDetails :item="getBlog('WorkPermit')" /> -->
-      </WrapperEl>
+      </IconBtn>
+      <ContextMenu class="md:hidden">
+        <template #button>
+          <div>
+            <Button class="flex items-center gap-2">
+              <span> {{ $t("ui.ShowTheList") }} </span>
+              <Icon icon="fa-solid fa-list" />
+            </Button>
+          </div>
+        </template>
+        <div class="grid">
+          <Button
+            v-for="b in blogs"
+            :key="b"
+            class=""
+            @click="handelScroll(b)"
+            >{{ getBlog(b).name }}</Button
+          >
+        </div>
+      </ContextMenu>
+      <div class="hidden md:flex gap-2 flex-wrap my-5">
+        <Button v-for="b in blogs" :key="b" class="" @click="handelScroll(b)">{{
+          getBlog(b).name
+        }}</Button>
+      </div>
+      <PageSplitter>
+        <BlogsDetails v-for="b in blogs" :key="b" :item="getBlog(b)" />
+      </PageSplitter>
 
       <!-- <BlogsGroup /> -->
     </Container>
@@ -22,58 +43,43 @@
 </template>
 
 <script>
-import BlogsGroup from "./BlogsGroup.vue";
+// import BlogsGroup from "./BlogsGroup.vue";
 import BlogsDetails from "./BlogsDetails.vue";
-import { EnglishBlogs } from "../../i18n/Blogs";
+import { EnglishBlogs, blogs } from "../../i18n/Blogs";
 export default {
   props: ["id"],
   components: {
     BlogsDetails,
-    BlogsGroup,
+    // BlogsGroup,
   },
   computed: {
     getCompoTranslatedName() {
       return this.$t(`ui.${this.$route.name}`);
     },
-    info() {
-      return [
-        // {
-        //   icon: "fa-solid fa-user-shield",
-        //   id: "InsuranceServices",
-        // },
-        {
-          icon: "fa-solid fa-address-card",
-          id: "ObtainingCitizenship",
-        },
-        // {
-        //   icon: "fa-solid fa-passport",
-        //   id: "TurkishResidence",        // },
-        {
-          icon: "fa-solid fa-briefcase",
-          id: "WorkPermit",
-        },
-        {
-          icon: "fa-solid fa-chart-column",
-          id: "CompaniesFormation",
-        },
-        {
-          icon: "fa-solid fa-graduation-cap",
-          id: "StudentServices",
-        },
-        // {
-        //   icon: "fa-solid fa-building",
-        //   id: "RealEstateService",
-        // },
-      ];
+    blogs() {
+      return blogs();
     },
   },
   methods: {
+    handelScrollTop() {
+      document.body.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
+    handelScroll(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "end" });
+      }
+    },
     getBlog(_id) {
       const trans = (word) => this.$t(`Blogs.${_id}.${word}`) || "";
       const blog = EnglishBlogs()[_id];
       blog.name = trans("name");
       blog.title = trans("title");
       blog.description = trans("description");
+
       blog.properties = blog.properties?.map((prop, propIndex) => {
         const newProperites = {
           title: trans(`properties[${propIndex}].title`),
